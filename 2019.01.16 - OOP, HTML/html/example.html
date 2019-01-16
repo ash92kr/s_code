@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang='ko'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            height: 10000px;
+        }
+        table, tr, td {
+            border: 1px solid darkgray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="edu">프로그래밍 교육</h1>
+    <a href="#python">
+        <img src="images/python-1.png" alt="python">  <!--alt는 설명을 위해 적기-->
+    </a>   <!--파이썬 id 생성해 누르면 아래로 내리기-->
+
+    <a href="reference.html">참고사이트</a>  <!--같은 폴더에 있으므로 이렇게만 입력-->
+    <hr>
+                                          <!--새로운 탭에서 파이썬 페이지 열림-->
+    <h2><a href="https://www.python.org/" target="_blank">파이썬</a></h2>
+    <h3>Number type</h3>
+    <p>파이썬에서 숫자형은 아래와 같이 있다.</p>
+
+    <ol style="list-style-type: hiragana">
+        <li>int</li>
+        <li>float</li>
+        <li>complex</li>
+        <li><del>str</del></li>
+    </ol>
+
+    <p><storng>Sequence</storng></p>
+    <p>파이썬에서 시퀀스는 아래와 같이 있다.</p>
+    <p><strong>시퀀스는 for문을 돌릴 수 있다!!</strong></p>
+
+    <ol>
+        <li>str</li>
+        <li>list</li>
+        <li>tuple</li>
+        <li>range</li>
+    </ol>
+
+    <hr>
+
+    <h2><a href="https://developer.mozilla.org/ko/">웹</a></h2>
+    <h3>기초</h3>
+
+    <ul style="list-style-type:circle">   <!--점의 모양을 바꿀 수 있음-->
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="python">파이썬</li>   <!--같은 페이지 내에서 id 이동 가능-->
+    </ul>
+
+    <section id="link">
+        <a href="https://www.google.com" target="_self">절대 URL</a>  <!--현재 탭에서 열림-->
+        <a href="reference.html" target="_blank">상대 URL</a>   <!--새 탭에서 열림-->
+        <a href="#edu">공무원 시험은 에듀윌</a>  <!--프로그래밍 교육으로 이동-->
+        <a href="mailto:test@gmail.com">메일 보내기</a>  <!--메일 보내기-->
+    </section>
+
+    <section>
+        <img src="images/python-1.png" width="300px" height="450px" alt="python">  <!--"", 붙여쓰기-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ps_8FuYLmaI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!--유투브에서 영상을 찾은 다음 공유 - 퍼가기를 눌러 코드를 복사해서 붙여넣기-->
+        <!--시작시간을 지정할 수 있다-->
+    </section>
+    
+    <section>
+        <table>
+            <tr> <!--1행을 만듦-->
+                <th></th> <!--1행은 무조건 굵게 만든다-->
+                <th>월</th>
+                <th>화</th>
+                <th>수</th> <!--1행 4열-->
+            </tr>
+            <tr>
+                <td>A코스</td>  <!--일반 글씨체-->
+                <td colspan="2">짬뽕</td>  <!--2열만큼 크기 차지-->
+                <td rowspan="2">초밥</td>  <!--2행만큼 크기 차지-->
+            </tr>
+            <tr>
+                <td>B코스</td>
+                <td>김치찌개</td>
+                <td>삼계탕</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h1>2019 타임테이블</h1>
+        <table>
+            <tr>
+                <th>TIME</th>
+                <th>INDOOR</th>
+                <th colspan="2">OUTDOOR</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>소극장</td>
+                <td>잔디마당</td>
+                <td>대공연장</td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td rowspan="2">안녕하신가영</td>
+                <td></td>
+                <td>10CM</td>
+            </tr>
+            <tr>
+                <td>13:00</td>
+                <td rowspan="2">선우정아</td>
+                <td rowspan="2">참깨와 솜사탕</td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td>크러쉬</td>
+                <td></td>
+                <td>폴킴</td>
+            </tr>
+        </table>
+    </section>
+
+    <br><br>
+
+    <!--form 실습-->
+    <h2>FORM INPUT</h2>
+    <form action="https://www.google.com/search?">  <!--값을 비우면 #을 넣음-->
+        텍스트 : <input type="text" name="q" autofocus><br>  <!--값을 넣는 칸-->
+        이메일 : <input type="email" autocomplete="on"><br>  <!--이메일 타입을 맞추라고 경고가 나옴-->
+        비밀번호 : <input type="password"><br>  <!--비밀번호 타입을 위해 가려짐-->
+        날짜 : <input type="date">  <!--날짜 타입을 맞춰줌-->
+        <input type="hidden" name="해커" value="이 사람은 해커야">
+        <!--아무 것도 입력하지 않고 전송을 누르면 name과 value의 기본값으로 이 단어들을 줌-->
+        <input type="submit" value="전송"><br>
+        
+        <!--radio button(선택 기능)-->
+        <input type="radio" name="gender" value="female" checked>여자<br>
+        <input type="radio" name="gender" value="male">남자<br>
+        <!--checked는 기본 선택값을 선정되도록 함-->
+
+        <!--checkbox(체크 박스) 다중 선택 가능-->
+        <input type="checkbox" name="option" value="1">sia<br>
+        <input type="checkbox" name="option" value="2">Queen<br>
+        <input type="checkbox" name="option" value="3">Bieber
+
+        <!--버튼을 통해 원하는 값 입력하기, 최소/최대값, 단계값, 기본값-->
+        <input type="number" name="size" min="10" max="60" step="10" value="15">
+
+        <!--selector 드롭박스-->
+        <select name="country">
+            <option value="korea">한국</option>
+            <option value="japan" disabled>일본</option> <!--disabled는 선택하지 못하게 막는 옵션-->
+            <option value="chine" selected>중국</option> <!--기본값으로 selected를 넣음-->
+        </select>
+    </form><br><br><br>
+
+
+    <!--실습-->
+    <h2>FORM</h2>
+    <form>
+        <p>주문서를 작성하여 주십시오.</p><br>
+
+        이름: <input type="text" name="name" placeholder="이름을 입력해주세요"><br>
+        날짜: <input type="date" value="2019-01-03">
+
+        <h3>1. 샌드위치 선택</h3>
+
+        <input type="radio" name="sandwitch" value="egg-mauo" checked>에그 마요<br>
+        <input type="radio" name="sandwitch" value="Italian">이탈리안 비엠티<br>
+        <input type="radio" name="sandwitch" value="Turkey">터키 베이컨 아보카도<br>
+
+        <hr>
+
+        <h3>2. 사이즈 선택</h3>
+
+        <input type="number" name="size" min="0" max="30" step="15" value="15">
+
+        <hr>
+
+        <h3>3. 빵</h3>
+
+        <select name="bread">
+            <option value="honey" selected>허니오트</option>
+            <option value="plat" disabled>플랫브래드</option>
+            <option value="Italian">하티 이탈리안</option>
+        </select>
+
+        <hr>
+
+        <h3>4. 야채/소스</h3>
+
+        <input type="checkbox" name="option" value="1">토마토<br>
+        <input type="checkbox" name="option" value="2">오이<br>
+        <input type="checkbox" name="option" value="3">할라피뇨<br>
+        <input type="checkbox" name="option" value="4">핫 칠리<br>
+        <input type="checkbox" name="option" value="5">바베큐<br><br>
+
+        <input type="submit" value="submit">
+    </form>
+
+    <form>
+        ID: <input type="text" name="name"><br>
+        PWD: <input type="password">
+        <input type="submit" value="로그인">
+    </form>
+
+</body>
+</html>
+
