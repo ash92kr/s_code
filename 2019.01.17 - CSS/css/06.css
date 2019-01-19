@@ -1,0 +1,63 @@
+.square {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: darkgray;
+}
+
+.relative-box {
+    position: relative;
+    background-color: navy;
+    top: 10px;  /* 위에서 10px만큼 내려감 */
+    left: 10px;
+}
+/* 자식 square가 부모 square를 덮고 있다 */
+/* relative의 기본 위치(여기서는 부모 위치)를 기준으로 움직인다 */
+
+.absolute-box {
+    position: absolute;
+    background-color: chocolate;
+    top: 30px;
+    left: 30px;
+}
+/* absolute의 부모의 속성이 static만 아니면 그 친구를 부모로 삼음 */
+/* 즉, 기준점이 아니라 부모의 시작점을 바탕으로 움직인다 */
+/* 따라서 부모에게 relative를 주면 자식들의 기준점이 잡힌다 */
+
+.fixed {
+    position: fixed;
+    background-color: coral;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+}
+/* 브라우저의 위치 기준으로 고정됨(아래쪽과 왼쪽의 여백이 없음) */
+
+.z-index-1 {
+    background-color: brown;
+    top: 300px;
+    left: 300px;
+    z-index: 4;
+}
+/* 부모가 body이므로 body의 기준점으로부터 300px만큼 상좌로부터 떨어짐 */
+
+
+.z-index-2 {
+    background-color: pink;
+    top: 350px;
+    left: 350px;
+    z-index: 5;
+}
+
+.z-index-3 {
+    background-color: black;
+    top: 400px;
+    left: 400px;
+    z-index: 3;
+}
+/* z-index는 낮은 순서가 가장 아래로 위치함 */
+/* 자식의 z-index는 부모의 z-index를 상속받는다 */
+
+
+
+

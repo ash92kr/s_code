@@ -1,0 +1,63 @@
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: darkgrey;
+}
+
+.padding-10 {
+    padding: 10px
+}
+
+.border-box {
+    box-sizing: border-box;
+}  
+/* border-box 기준으로 100 * 100 사이즈를 유지하겠다 */
+/* 위의 박스는 contenct box가 기준값임을 알 수 있다 */
+/* 대신, padding 값 기준으로 안쪽으로 크기가 줄어들음 */
+
+.margin-50 {
+    /* margin: 50px 50px 50px 50ox; /* 12시 3시 6시 9시 */
+    /* margin: 25px 50px 50ox;  위  좌/우  하  */
+    /* margin: 25px 50px;  상/하  좌/우 */
+    margin: 50px;
+}   
+
+.margin-top-100 {
+    margin-top: 100px;
+}
+
+.margin-3 {
+    margin: 10px 20px 30px;
+}
+
+.border {
+    border: 1px black dashed;   /* 모든 부분에 영향을 줄 때 */
+    border-style: dashed;   /* 점선 */
+    border-bottom-style: double;
+    border-top-style: solid;
+    border-left-style: inset;
+    border-bottom-color: aqua;
+}  
+/* 점선 형태로 경계선을 바꿀 수 있다
+bottom / top / left / right을 모두 변경 가능 */
+/* inset : 불룩하게 경계선이 튀어나온 선
+/* 선의 속성인 굵기, 색, 형태는 순서가 바뀌어도 상관 없음 */
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background-color: darkgoldenrod;
+    /* border-radius: 100px;  */   /* 모서리 깎기 */
+    border-radius: 50%;
+}
+
+.rugby {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(251, 49, 83, 0.7);
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    /* top-bottom  left-right (2개만 작성해도 됨) */
+}

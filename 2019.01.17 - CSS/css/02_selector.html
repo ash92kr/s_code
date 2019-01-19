@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="02.css">
+</head>
+<body>
+    <p>빨간색</p>
+    <h1>TAG 선택자</h1>
+    <h2 class="pink">클래스 선택자</h2>
+    <h3 id="green">아이디 선택자</h3>
+    <h3 id="green" class="pink">아이디와 클래스</h3>
+    <h2 class="pink">클래스와 태그 선택자</h2>
+    <hr><br><br>
+
+    <p><span class="blue">파란색</span>과 <span id=green>초록색</span></p>
+    <!-- span 태그와 div 태그는 모두 의미는 없지만, 마크업을 해야 css를
+    적용시킬 수 있기 때문에 사용한다. 컴퓨터니까 특정한 곳을 지정해야해
+    선택자가 필요하고, 선택자를 잡기위해서는 마크업이 필요하다. -->
+    
+    <p class="bold blue pink">선택자 볼드체</p>  
+    <!--여러 개의 같은 선택자를 선언하는 경우, css 파일에 있는
+    가장 마지막에 위치한 선택자가 적용된다-->
+    <p><strong>스트롱 볼드체</strong></p>
+    <p><b>볼드체</b></p>
+    <!-- 사용자 입장에서 달라지는 점이 무엇인가?
+    tag를 통해서 강조나 볼드체라는 것을 명시할 수 있다.
+
+    따라서 단순 볼드체를 하기 위해서 strong 태그를 남발하는 경우,
+    브라우저가 모든 볼드체를 강조하게 된다. 
+    무엇이 중요한 것인지 인식하지 못하므로 남발하지 말 것.
+    그래서 의미론적 태그는 남발하지 말고 중요한 경우에만 strong을 사용한다 -->
+
+</body>
+</html>

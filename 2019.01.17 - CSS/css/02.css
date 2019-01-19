@@ -1,0 +1,32 @@
+* {
+    color: crimson;
+}
+
+h1 {
+    color: darkblue;
+} /* 전체 설렉트 보다는 특정 태그 설렉트가 우선순위가 높다 */
+
+.pink {
+    color: pink;
+} /* 클래스 설렉트는 .을 사용한다 */
+
+#green {
+    color: darkgreen;
+} /* id 설렉터가 class 설렉터보다 우선순위가 높다 */
+
+h2 {
+    color: black;
+} /* class 설렉터가 태그 설렉터보다 우선순위가 높다 */ 
+
+/* 하나를 집약해서 지정하는 것이 전체를 선택하는 것보다 높다 */
+/* id > class > 태그 > 전체 설렉터 순 */
+
+.blue {
+    color: blue;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+

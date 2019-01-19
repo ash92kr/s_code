@@ -1,0 +1,53 @@
+body {
+    height: 10000px;
+}
+
+p, h3 {
+    color: darkgray;
+}
+
+.black_bg, .white {
+    color: white;
+    background-color: black;
+}  /* 여러 개의 클래스도 적용 가능한 그룹 선택자 */
+
+div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}   /* div의 크기는 가로 세로 100px, 경계선은 1px 검은색 */
+/* 그러나 div 이후 우측으로 계속 영역을 차지하므로 block 방식이다 */
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red + .blue + div {
+    background-color: purple;
+}
+
+h1 + p {
+    color: darkgreen;
+} /* 바로 인접한 경우만 사용가능한 형제 선택자 */
+/* h1의 형제 태그인 p를 바꾸는 것 */
+
+ol > li {
+    color: coral;
+}
+
+ol#chocolate > li {
+    color: chocolate;
+}
+
+ul li {
+    color: greenyellow;
+} /* 이런 식으로 적으면 ul 태그 안의 모든 li 태그에 적용됨 */
+
+ul li:nth-of-type(2) {
+    color: black;
+}
+
