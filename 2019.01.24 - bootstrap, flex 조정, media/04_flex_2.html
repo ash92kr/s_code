@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="flex_temp.css">
+    <style>
+        .container {
+            display: flex;
+            height: 100vh;
+            border: 10px solid royalblue;
+            /* justify-content: flex-start;  기본값(왼쪽 정렬) */
+            /* justify-content: flex-end;  오른쪽 정렬(순서가 바뀌지는 않음) */
+            justify-content: center; /* 다시 한 번 정리하지만, x축 중심으로 움직임 */
+            /* justify-content: space-between; 가운데에 정리를 시키고 나머지는 공간을 비우고 정렬함 */
+            /* justify-content: space-around 안쪽 공백이 외곽 공백의 2배 */
+
+            /* align-items: flex-start; y축 기준으로 움직이므로 위쪽에 붙음 */
+            /* align-items: flex-end;  아래쪽에 붙음 */
+            /* align-items: center;  세로로 가운데에 붙음 */
+            /* align-items: stretch;  세로로 죽 늘인 기본값 */
+            align-items: baseline; /* flex-start와 비슷하게 안 요소의 길이에 따라 baseline 길이가 달라짐 */
+        }
+
+        /* justify-content는 x축 정렬이고, align-items는 y축 정렬이다 */
+        /* flex-direction에 따라 justify 정렬과 items의 정렬 방향이 달라진다 */
+
+        .item {
+            width: 200px;
+            border: 10px solid olive;
+        }
+
+        .item1 {
+            font-size: 2rem;
+        }
+
+        .item2 {
+            font-size: 5rem;
+        }
+
+        .item3 {
+            font-size: 10rem;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- justify, aliance -->
+    <div class="container p-0">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+/* @media(조건문) {
+    .... (실행문)
+} */
+
+/* @media (min-width: 600px) {   /* 600px 이상이면 크림슨 색상으로 출력 --' */
+    /* h1{
+        color: crimson;
+    }
+} */
+
+@media (max-width: 500px) {
+    h2 { 
+        color:darkgreen;
+    }
+}  /* 최대 600 이하까지만 녹색으로 출력함 */
+
+@media (orientation: landscape) {   /* 가로 판단 */
+    p.orientation::after {
+    content: ' 가로입니다.'   
+    }
+}
+
+@media (orientation: portrait){
+    p.orientation::after {   /* 방향을 바꾸면 가로/세로가 출력됨 */
+        content: ' 세로입니다.'
+    }
+}
+
+/* 400 이상의 길이에서는 */
+@media (min-width: 400px) {
+    .rainbow {
+        color: red;
+    }
+}
+
+@media (min-width: 500px) {
+    .rainbow {
+        color: orange;
+    }
+}
+
+@media (min-width: 600px) {
+.rainbow {
+    color: yellow;
+    }
+}
+
+@media (min-width: 700px) {
+.rainbow {
+    color: green;
+    }
+}
+
+@media (min-width: 800px) {
+.rainbow {
+    color: skyblue;
+    }
+}
+
+@media (min-width: 900px) {
+    .rainbow {
+        color: blue;
+    }
+}
+
+@media (min-width: 1000px) {
+    .rainbow {
+        color: purple;
+    }
+}
+
+/* 높이와 너비의 조건 2개 */
+/* and (or) = , not */
+@media (max-height: 500px) and (max-width: 500px) {
+    h3 {
+        color: violet;
+    }
+}
+
+@media only print {
+    h4 {
+        color: red;
+    }
+}
+
+
+
+/* 부트스트랩 그리드 시스템 조건을 미디어 쿼리로 만들기 */
+
+/* small - extra small은 조건 필요 없음 */
+@media (min-width: 576px) {
+    h5 {
+        color: yellow;
+    }
+}
+
+/* medium */
+@media (min-width: 768px) {
+    h5 {
+        color: green;
+    }
+}
+
+/* large */
+@media (min-width: 992px) {
+    h5 {
+        color: blue;
+    }
+}
+
+/* extra large */
+@media (min-width: 1200px) {
+    h5 {
+        color: pink;
+    }
+}
