@@ -1,0 +1,17 @@
+.section {
+    height: 350px;
+    background-image: url('main.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: grey;
+    color: white;
+}
+
+
