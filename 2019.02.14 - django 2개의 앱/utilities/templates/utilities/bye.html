@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Bye{% endblock %}
+
+{% block body %}
+    헤어질 때까지 남은 시간<br>
+    <h1>현재 시간 : {% now "DATETIME_FORMAT" %}</h1>
+    <h1>남은 시간 : {{ result }}</h1>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}today{% endblock %}
+
+{% block body %}
+    오늘 시간 및 대전 지역 날씨 정보<br><br>
+    <h3>시간 : {% now "DATETIME_FORMAT" %}</h3>
+    <h3>날씨 : {{ weather }}</h3>
+    <h3>현재 기온 : {{ temp }}</h3>
+    <h3>오늘 최고 기온 : {{ min_temp }}</h3>
+    <h3>오늘 최저 기온 : {{ max_temp }}</h3>
+{% endblock %}

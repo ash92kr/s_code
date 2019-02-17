@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}ascii_new{% endblock %}
+
+{% block body %}
+    아스키 art 변환을 위한 텍스트 입력받기<br>
+    <form action='/utilities/ascii_make', method='POST'>   <!--절대경로-->
+        {% csrf_token %}
+        <input type="text" name="text"/>
+        <select name="font">
+            <option value="short">short</option>
+            <option value="utopia">utopia</option>
+            <option value="rounded">rounded</option>
+            <option value="acrobatic">acrobatic</option>
+            <option value="alligator">alligator</option>
+        </select>
+        <input type="submit" value="Submit"/>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+<body style='height: 10000px;'>
+    <h3>1. 반복문</h3>
+    
+    {% for menu in my_list %}
+        <p>{{ menu }}</p>
+    {% endfor %}
+    <hr>
+    
+    {% for menu in my_list %}
+        {{ forloop.counter }}   <!--인덱스 값이 생성됨, %% 붙이지 않음-->
+        
+        {% if forloop.first %}   <!--첫 번째 for문의 출력값만 바꿈-->
+            <p>짜장면+고춧가루</p>   <!--first랑 last밖에 없다-->
+        {% else %}
+            <p>{{ menu }}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    
+    {% for user in empty_list %}
+        <p>{{ user }}</p>
+    {% empty %}   <!--리스트가 비었다면 아래 문구를 출력함-->
+        <p>지금 가입한 회원이 없습니다.</p>
+    {% endfor %}
+    <hr>
+    
+    <h3>2. 조건문</h3>
+    {% if '간짜장' in my_list %}
+        <p>간짜장엔 고춧가루지!!!!</p>
+    {% endif %}
+    <hr>
+    
+    <h3>3. length filter 활용</h3>
+    {% for message in messages %}
+        {% if message|length > 5 %}   <!--하나의 원소의 글자가 6글자 이상이면-->
+            <p>글씨가 너무 길어서 출력 안 됨</p>
+        {% else %}
+            <p>{{ message }}, {{ message|length }}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    
+    <h3>4. lorem ipsum</h3>
+    {% lorem %}   <!--내장변수이므로 그대로 사용 가능-->
+    <hr>
+    {% lorem 3 w %}   <!--3단어만 출력된다-->
+    <hr>
+    {% lorem 4 w random %}  <!--페이지 새로고침할 때마다 단어 바뀜-->
+    <hr>
+    {% lorem 2 p %}  <!--2개의 문단이 출력됨-->
+    <hr>
+    
+    <h3>5. 글자수 제한</h3>
+    <p>{{ my_sentence|truncatewords:3 }}</p>
+    <!--앞에서 3단어만 남기고 나머지는 생략시킴-->
+    <p>{{ my_sentence|truncatechars:5 }}</p>
+    <!-- ...은 공백포함 4글자이므로 최소 5글자 이상이어야 첫 글자가 나온다-->
+    <p>{{ my_sentence|truncatechars:10 }}</p>
+    <hr>
+    
+    <h3>6. 글자 관련 filter</h3>
+    <p>{{ 'abc'|length }}</p>
+    <p>{{ 'ABC'|lower }}</p>
+    <p>{{ my_sentence|title }}</p>   <!--단어의 첫 글자를 대문자로 바꿈-->
+    <p>{{ 'abc def'|capfirst }}</p>   <!--가장 첫 글자만 대문자로 바꿈-->
+    <p>{{ my_list|random }}</p>   <!--리스트 원소를 랜덤으로 섞음-->
+    <hr>
+    
+    <h3>7. 연산</h3>
+    <p>{{ 4|add:6 }}</p>   <!--4+6-->
+    <hr>
+    <!--이외의 연산은 django mathfilter 사용할 것-->
+
+    <h3>8. 날짜 표현</h3>
+    {% now "DATETIME_FORMAT" %}<br>
+    {% now "SHORT_DATETIME_FORMAT" %}<br>   <!--간략한 버전-->
+    {% now "DATE_FORMAT" %}<br>   <!--시간, 분 제외-->
+    {% now "SHORT_DATE_FORMAT" %}<br>
+    <hr>
+    {% now "Y년 m월 d일 (D) h:i" %}    <!--표시값 조정 (요일) 시간:분-->
+    <hr>
+    {% now "Y" as current_year %}   <!--연도를 current_year로 변수화함-->
+    Copyright {{ current_year }}
+    <hr>
+    {{ datetimenow }}<br>
+    {{ datetimenow|date:"SHORT_DATE_FORMAT" }}   <!--변수를 필터를 거쳐서 표기할 수도 있다-->
+    <hr>
+    
+    <h3>9. 기타</h3>
+    {{ 'google.com'|urlize }}   <!--해당 url 사이트로 이동 가능-->
+    
+</body>

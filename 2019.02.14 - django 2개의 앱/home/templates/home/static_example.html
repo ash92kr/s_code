@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}STATIC{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'home/stylesheets/style.css' %}" type="text/css" />
+{% endblock %}    
+
+{% block body %}
+    <img src="{% static 'home/images/농협.png' %}" alt='image'></img>
+    <!--{% static '파일명' %}-->
+{% endblock %}
+
+

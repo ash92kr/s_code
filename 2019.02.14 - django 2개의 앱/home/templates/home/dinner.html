@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} dinner {% endblock %}
+{% block body %} 
+
+    {% for menu in menus %}
+        <p>{{ menu }}</p>
+    {% endfor %}
+    <hr>
+    {% if pick == '라면' %}
+        <p>라면엔 피자</p>
+    {% else %}
+        <p>{{ pick }}</p>
+    {% endif %}
+
+{% endblock %}

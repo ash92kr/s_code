@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Graduaton{% endblock %}
+
+{% block body %}
+    졸업할 때까지 남은 시간
+    <h1>현재 시간 : {% now "DATETIME_FORMAT" %}</h1>
+    <h1>남은 시간 : {{ farewell }}</h1>
+{% endblock %}
