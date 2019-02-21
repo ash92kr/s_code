@@ -1,0 +1,18 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    <h1>Edit</h1>
+    <h2>{{ board.id }}번째 글 수정</h2>
+    
+    <form action='/boards/{{ board.pk }}/update/' method='POST'>   <!--수정한 내용을 update로 보냄-->
+        {% csrf_token %}
+        <label for="title">TITLE</label>
+        <input type="text" name="title" id="title" value="{{ board.title }}"/><br>   <!--이전에 입력한 내용을 가져옴-->
+        <label for='content'>CONTENT</label>
+        <textarea name='content' id='content'>{{ board.content }}</textarea><br>   <!--textarea는 직접 값을 적어주어야 함-->
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <a href="/boards/">BACK</a>
+
+{% endblock %}

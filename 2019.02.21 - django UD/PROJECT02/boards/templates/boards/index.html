@@ -1,0 +1,22 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+
+    <h1>Board</h1>
+
+    <a href="/boards/new/">글 작성하기</a>
+    <hr>
+    
+    {% for board in boards %}
+        <p>{{ board.id }}</p>
+        <p>{{ board.title }}</p>
+        {{ board.created_at|timesince }} 전<br>
+        <!--현재 시간에서 글 만들어진 시간을 뺀 것-->
+        <a href="/boards/{{ board.pk }}">[글 보러가기]</a>   <!--url이 직접 넘어가므로 pk-->
+        <a href="/boards/{{ board.pk }}/delete/" onclick="return confirm('진짜 지울거야??')">[글 삭제하기]</a>
+        <a href="/boards/{{ board.pk }}/edit/">[수정]</a>
+        <hr>
+    {% endfor%}
+    
+{% endblock %}
+

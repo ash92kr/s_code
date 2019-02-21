@@ -1,0 +1,17 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    <h1>New</h1>
+    
+    <form action='/boards/create/' method='POST'>   <!--POST는 create/ 뒤에 /를 반드시 붙여야 하고, GET은 상관없다-->
+        {% csrf_token %}
+        <label for="title">TITLE</label>   <!--input의 id를 추적함 -> TITLE을 눌러도 박스로 이동-->
+        <input type="text" name="title" id="title"/><br>
+        <label for='content'>CONTENT</label>
+        <textarea name='content' id='content'></textarea><br>
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <a href="/boards/">BACK</a>
+
+{% endblock %}
