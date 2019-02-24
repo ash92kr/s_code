@@ -1,0 +1,47 @@
+{% extends 'movies/base.html' %}
+
+{% block title %} Detail {% endblock %}
+
+{% block style %}
+    <style>
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <br>
+        <div class="row"> <h2>{{ movie.title }} 영화 정보!</h2> </div>
+        <hr>
+        <div class="row"> <img src="{{ movie.poster_url }}" width="300px" height="500px"> </div>
+        <hr>
+        
+        <div class="row">
+            <table border="1px solid black" align="center">
+                <tr>
+                    <td>누적 관객수</td>
+                    <td>영화 장르</td>
+                    <td>영화 평점</td>
+                </tr>
+                <tr>
+                    <td>{{ movie.audience }}</td>
+                    <td>{{ movie.genre }}</td>
+                    <td>{{ movie.score }}</td>
+                </tr>
+            </table>
+        </div><br>
+        
+        <p>포스터 URL : <a href="{{ movie.poster_url }}">{{ movie.poster_url }}</a></p>
+        <p>영화 소개 : {{ movie.description }}</p>
+        <hr>
+        <a href="/movies/">[목록보기]</a>
+        <a href="#">[수정하기]</a>   <!--버튼만 만들라는 의미임-->
+        <a href="/movies/{{ movie.id }}/delete/">[삭제하기]</a>
+    </div>
+        
+{% endblock %}

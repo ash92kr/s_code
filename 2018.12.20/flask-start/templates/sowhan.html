@@ -1,0 +1,14 @@
+<h1>소환사를 검색하세요.</h1>
+<h3>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  {% endif %}
+{% endwith %}    
+</h3>
+<form action='/summoner'>
+    <input type="text" name="name"/>
+    <input type="submit" value="Submit"/>
+</form>
