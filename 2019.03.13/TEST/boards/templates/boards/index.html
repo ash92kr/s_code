@@ -1,0 +1,20 @@
+{% extends 'boards/base.html' %}
+
+{% block title %}  인덱스입니다 {% endblock %}
+
+{% block body %}
+    <h1>INDEX</h1>
+
+    {% for board in boards %}
+        <p>{{ board.id }}</p>
+        <p>{{ board.title }}</p>
+        <p>{{ board.content }}</p>
+        <p>{{ board.created_at }}</p>
+        <p>{{ board.updated_at }}</p>
+        <a href="/boards/edit/{{ board.id }}">글 수정하기</a>
+        <hr>
+    {% endfor %}
+    
+    <a href="/boards/new/">글 입력하기</a>
+    
+{% endblock %}

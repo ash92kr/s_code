@@ -1,0 +1,18 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    
+    <h1>Edit</h1>
+    <!--<form action="/boards/{{ board.pk }}/update/" method="POST">-->
+    <form action="{% url 'boards:update' board.pk %}" method="POST">
+        {% csrf_token %}
+        <label for="title">TITLE</label>
+        <input type="text" name="title" id="title" value="{{ board.title }}"/><br>
+        <label for="content">CONTENT</label>
+        <input type="text" name="content" id="content" value="{{ board.content }}"/><br>
+        <input type="submit" name="submit"/>
+    </form>
+    <!--<a href="/boards/">BACK</a>-->
+    <a href="{% url 'boards:index' %}">BACK</a>
+    
+{% endblock %}

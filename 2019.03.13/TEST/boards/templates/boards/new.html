@@ -1,0 +1,23 @@
+{% extends 'boards/base.html' %}
+
+{% block title %} new페이지 {% endblock %}
+
+{% block body %}
+
+    <form action="/boards/create/" method="POST">
+        {% csrf_token %}
+        <label for="title">title</label>
+        <input type="text" name="title" id='title'/>
+        <label for="content">content : </label>
+        <textarea name="content" id="content"></textarea>
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <a href="/boards/">돌아가기</a>
+
+{% endblock %}
+
+
+
+
+

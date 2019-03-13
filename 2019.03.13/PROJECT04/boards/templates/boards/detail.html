@@ -1,0 +1,20 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    
+    <h1>Detail</h1>
+    <h2>{{ board.pk }}번째 글</h2>
+    <hr>    
+    <h2>{{ board.title }}</h2>
+    <h2>{{ board.content}}</h2>
+    <p>{{ board.created_at | timesince }}</p>
+    <h2>{{ board.updated_at }}</h2>
+    <!--<a href="/boards/">BACK</a>-->
+    <a href="{% url 'boards:index' %}">BACK</a>
+    <!--<a href="/boards/{{ board.pk }}/edit/">[수정]</a>-->
+    <a href="{% url 'boards:edit' board.pk %}">[수정]</a>  <!--urls.py의 edit 뷰 함수 이름에 board.pk를 붙임-->
+    <!--<a href="/boards/{{ board.pk }}/delete/" onclick="return confirm('ARE YOU SURE?')">[삭제]</a>-->
+    <a href="{% url 'boards:delete' board.pk %}" onclick="return confirm('ARE YOU SURE?')">[삭제]</a>
+    <!--여러 개의 pk가 들어가는 경우 순서를 맞춰 적어주면 된다-->
+
+{% endblock %}
