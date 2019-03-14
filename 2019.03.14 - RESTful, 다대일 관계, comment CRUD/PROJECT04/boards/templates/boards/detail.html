@@ -1,0 +1,47 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    
+    <h1>Detail</h1>
+    <h2>{{ board.pk }}번째 글</h2>
+    <hr>    
+    <h2>{{ board.title }}</h2>
+    <h2>{{ board.content}}</h2>
+    <p>{{ board.created_at | timesince }}</p>
+    <h2>{{ board.updated_at }}</h2>
+    <!--<a href="/boards/">BACK</a>-->
+    <a href="{% url 'boards:index' %}">BACK</a>
+    <!--<a href="/boards/{{ board.pk }}/edit/">[수정]</a>-->
+    <a href="{% url 'boards:edit' board.pk %}">[수정]</a>  <!--urls.py의 edit 뷰 함수 이름에 board.pk를 붙임-->
+    <!--<a href="/boards/{{ board.pk }}/delete/" onclick="return confirm('ARE YOU SURE?')">[삭제]</a>-->
+    <!--<a href="{# url 'boards:delete' board.pk #}" onclick="return confirm('ARE YOU SURE?')">[삭제]</a>-->
+    <!--여러 개의 pk가 들어가는 경우 순서를 맞춰 적어주면 된다-->
+    
+    <form action="{% url 'boards:delete' board.pk %}" method="POST" style="display:inline" onsubmit="return confirm('ARE YOU SURE?');">
+        {% csrf_token %}                                                                       <!--자바스크립트 방식이므로 ;입력-->
+        <input type="submit" value="삭제"/>   <!--버튼 자체를 form으로 만든 것-->
+    </form>
+    
+    <!--{# for comment in board.comment_set.all #}-->   <!--이렇게 쓰기보다 장고 템플릿으로 넘어오는 게 낫다-->
+        
+    {% for comment in comments %}
+        <li>
+            {{ comment.content }}
+            <form action="{% url 'boards:comments_delete' board.pk comment.pk %}" method="POST" onsubmit="return confirm('삭제하겠습니까?');" style="display: inline">
+                {% csrf_token %}
+                <input type="submit" value="삭제">
+            </form>
+        </li>   <!--삭제는 pk를 2개 보내주어야 한다 - 주소의 순서대로 입력해야 한다-->
+    {% empty %}
+        <p><b>댓글이 없어요...</b></p>
+    {% endfor %}
+    
+    <hr>
+    <p>댓글 작성 / {{ comments | length }} 개의 댓글</p>
+    <form action="{% url 'boards:comments_create' board.pk %}" method="POST">
+        {% csrf_token %}
+        comment: <input type="text" name="content">
+        <input type="submit" value="submit">
+    </form>
+        
+{% endblock %}
