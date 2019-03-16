@@ -1,0 +1,55 @@
+{% extends 'movies/base.html' %}
+
+{% block title %} DETAIL {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>영화 정보 조회</h1>
+        
+        <hr>
+        
+        <!--views.py의 movies를 따름-->
+        <p><h2>영화명 : {{ movie.title }}</h3></p>
+        <p><h2>종합 평점 : {{ movie.score_avg }}</h2></p>
+        <p><h3>관객수 : {{ movie.audience }}</h3></p>
+        <p>포스터 : <img src="{{ movie.poster_url }}"></img></p>
+        <p>설명 : {{ movie.description }}</p>
+        <p>장르 : {{ genre.name }}</p>
+        
+        <hr>
+        
+        <!--<a href="/movies/">[목록]</a>-->
+        <a href="{% url 'movie:index' %}">[목록]</a>  <!--urls.py의 movies를 따름-->
+        <a href="#">[수정]</a>
+        <form action="{% url 'movie:delete' movie.pk %}" method="POST" style="display:inline">
+            {% csrf_token %}                 <!--views.py의 movies를 따름-->
+            <input type="submit" value="삭제"/>
+        </form>
+        
+        <hr>
+        
+        {% for score in scores %}
+            <li>
+                한줄평 : {{ score.content }} / {{ score.score }}점
+                <form action="{% url 'movie:comments_delete' movie.pk score.pk %}" method="POST" onsubmit="return confirm('정말 지우시겠습니까?');" style="display:inline">
+                    {% csrf_token %}
+                    <input type="submit" value="평점 삭제"/>                
+                </form>
+            </li>
+        {% endfor %}
+        
+        <hr>
+        
+        <form action="{% url 'movie:comments_create' movie.pk %}" method="POST">
+            {% csrf_token %}
+            <label for="content">한줄평:</label>
+            <input type="text" name="content" id="content"/>
+            <label for="score">평점:</label>
+            <input type="number" name="score" id="score"/>
+            <input type="submit" value="평점 주기"/>
+        </form>
+
+    </div>
+
+{% endblock %}
