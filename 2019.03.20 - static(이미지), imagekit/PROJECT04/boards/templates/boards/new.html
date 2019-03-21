@@ -1,0 +1,21 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+    
+    <h1>New</h1>
+    <!--<form action="/boards/create/" method="POST">-->
+    <!--<form action="{% url 'boards:new' %}" method="POST">-->
+    <form method="POST" enctype="multipart/form-data">   <!--action이 없으면 자기 위치로 form을 보내므로(POST) CREATE이 됨-->
+        {% csrf_token %}
+        <label for="title">TITLE</label>
+        <input type="text" name="title" id="title"/><br>
+        <label for="content">CONTENT</label>
+        <input type="text" name="content" id="content"/><br>
+        <input type="file" name="image" accept="image/*">
+        <input type="submit" name="submit"/>
+    </form>
+    <!--<a href="/boards/">BACK</a>-->
+    <a href="{% url 'boards:index' %}">BACK</a>
+    
+    
+{% endblock %}
