@@ -1,0 +1,17 @@
+{% extends 'votes/base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">TITLE</label>
+        <input type="text" name="title"/>
+        <label for="select_a">A</label>
+        <input type="text" name="select_a"/>
+        <input type="file" name='image_a' accept="image/*">
+        <label for="select_b">B</label>
+        <input type="text" name="select_b"/>
+        <input type="file" name='image_b' accept="image/*">
+        <input type="submit" value="등록"/>
+    </form>
+{% endblock %}

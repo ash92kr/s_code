@@ -1,0 +1,15 @@
+{% extends 'votes/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+    {% for question in questions %}
+        <li>
+            <a href="{% url 'votes:detail' question.pk %}">{{ question.title }}</a>
+            
+        </li>
+    {% endfor %}
+    <hr>
+    <a href="{% url 'votes:new' %}">새 글 등록</a>
+{% endblock %}

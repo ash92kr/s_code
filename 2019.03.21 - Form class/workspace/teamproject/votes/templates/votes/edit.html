@@ -1,0 +1,15 @@
+{% extends 'votes/base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="title">TITLE</label>
+        <input type="text" name="title" value="{{ question.title }}"/>
+        <label for="select_a">A</label>
+        <input type="text" name="select_a" value="{{ question.select_a }}"/>
+        <label for="select_b">B</label>
+        <input type="text" name="select_b" value="{{ question.select_b }}"/>
+        <input type="submit" value="수정"/>
+    </form>
+{% endblock %}

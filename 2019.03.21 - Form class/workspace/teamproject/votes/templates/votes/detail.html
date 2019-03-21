@@ -1,0 +1,39 @@
+{% extends 'votes/base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <img src="{{ question.image_a.url }}" alt="{{ question.image_a }}"></img>
+    <img src="{{ question.image_b.url }}" alt="{{ question.image_b }}"></img>
+    <p>{{ question.select_a }} vs {{ question.select_b}}</p>
+    <hr>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ rate_a }}%" aria-valuenow="{{ rate_a }}" aria-valuemin="0" aria-valuemax="100">{{ str_rate_a }}</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ rate_b }}%" aria-valuenow="{{ rate_b }}" aria-valuemin="0" aria-valuemax="100">{{ str_rate_b }}</div>
+    </div>
+    <hr>
+    {% for answer in answers %}
+        {{ answer.pick }} : {{ answer.comment }}
+        <form action="{% url 'votes:answers_delete' question.pk answer.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="DELETE"/>
+        </form>
+    {% endfor %}
+    <hr>
+    <form action="{% url 'votes:answers_create' question.pk %}" method="POST">
+        {% csrf_token %}
+        <!--<input type="number" name="pick"/>-->
+        <input type="radio" name="pick" value="0" />LEFT
+        <input type="radio" name="pick" value="1" />RIGHT  
+        <input type="text" name="comment"/>
+        <input type="submit" value="댓글달기"/>
+    </form>
+    <hr>
+    <a href="{% url 'votes:index' %}">BACK</a>
+    <a href="{% url 'votes:edit' question.pk %}">EDIT</a>
+    <form action="{% url 'votes:delete' question.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="DELETE"/>
+    </form>
+    
+{% endblock %}
