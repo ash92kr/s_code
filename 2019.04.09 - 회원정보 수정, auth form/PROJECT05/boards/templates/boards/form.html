@@ -1,0 +1,73 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+{% if request.resolver_match.url_name == 'create' %}
+    <h1>NEW BOARD</h1>
+{% else %}
+    <h1>EDIT BOARD</h1>
+{% endif %}
+
+<!--1--> <!--기본 model 설정을 가지고 와서 사용함-->
+<form method="POST">
+    {% csrf_token %}
+    <!--<label for="title">Title</label>-->
+    <!--<input type="text" name="title" id='title'/>-->
+    <!--<label for="content">Content</label>-->
+    <!--<textarea name='content', id='content'></textarea>-->
+    <!--{{ form.as_p }}-->
+    {{ form|crispy }}   <!--forms의 모델을 가져왔기 때문에 가능-->
+    <input type="submit" value="Submit"/>
+</form>
+
+<!--2--> <!--라벨이 없다-->
+<!--<form method="POST">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.title }}-->
+<!--    {{ form.content }}-->
+<!--    <input type="submit" value="Submit"/>-->
+<!--</form>-->
+    
+<!--3--> <!--for문 안에 form들을 불러온다-->
+<!--<form method="POST">-->
+<!--    {% csrf_token %}-->
+<!--    {% for field in form %}-->
+<!--        {{ field.errors }}-->
+<!--        {{ field.label_tag }} {{ field }}-->
+<!--    {% endfor %}-->
+<!--    <input type="submit" value="Submit"/>-->
+<!--</form>-->
+
+<!--4--> <!--form을 변경시킬 수 있다-->
+<!--{{ form.non_field_errors }}-->
+<!--<form method="POST">-->
+<!--    {% csrf_token %}-->
+<!--    <div class="col-4">-->
+<!--        {{ form.title.errors }}-->
+<!--        {{ form.title.label_tag }}-->
+<!--        {{ form.title }}-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        {{ form.content.errors }}-->
+<!--        {{ form.content.label_tag }}-->
+<!--        {{ form.content }}-->
+<!--    </div>-->
+<!--    <input type="submit" value="Submit"/>-->
+<!--</form>-->
+
+<!--5-->  <!--1번과 동일한 결과를 나타냄-->
+<!--{% crispy form %}-->
+    
+
+<!--{% if request.resolver_match.url_name == 'create' %}-->
+<!--    <a href="{% url 'boards:index' %}">BACK</a>-->
+<!--{% else %}-->
+<!--    <a href="{% url 'boards:detail' board.pk %}">BACK</a>-->
+<!--{% endif %}-->
+
+
+<!--{% endblock %}-->
+
+

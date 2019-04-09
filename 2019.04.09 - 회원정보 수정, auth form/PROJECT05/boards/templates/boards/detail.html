@@ -1,0 +1,19 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+
+    <h1>{{ board.pk }}번째 글</h1>
+    <h2>{{ board.title }}</h2>
+    <hr>
+    <p>{{ board.content }}</p>
+    <a href="{% url 'boards:index' %}">BACK</a>
+    
+    {% if user == board.user %}   <!--내 글인 경우만 아래 버튼이 나옴-->
+        <form action="{% url 'boards:delete' board.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="삭제"/>
+        </form>
+        <a href="{% url 'boards:update' board.pk %}">[수정]</a>
+    {% endif %}
+
+{% endblock %}
