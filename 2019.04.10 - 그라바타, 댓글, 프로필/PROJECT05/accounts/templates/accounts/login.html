@@ -1,0 +1,16 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+<h1>로그인</h1>
+
+<form action="" method="POST">   <!--자기 자신에게 돌아오므로 action이 필요 없음-->
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit"/>
+    <input type="hidden" value="{{ next }}" name="next"/>  <!--이름이 아닌 값을 바꿈-->
+</form>
+
+{% endblock %}
