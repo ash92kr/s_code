@@ -1,0 +1,70 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+
+{% load gravatar %}
+
+<div class="d-flex justify-content-center">
+    <img src="https://s.gravatar.com/avatar/{{ user_info.email|makemd5 }}?s=150" class="rounded-circle" alt="아바타 이미지">
+    <h3 style="display:inline;">{{ user_info.username }}의 프로필
+    <button type="button" class="btn btn-primary">삼성 지원</button></h3>
+</div>
+
+<div class="d-flex justify-content-center">
+    계열사 : 62
+    직원수 : 10.2K
+    경쟁률 : 200
+    <br>
+    출생 : 1968년 6월 23일<br>
+    소속 : 삼성전자(부회장)<br>
+    학력 : 하버드대학교 경영대학원 경영학 박사과정 수료<br>
+    <a href="http://dart.fss.or.kr/dsaf001/main.do?rcpNo=20190401004781" target="_blank">[투자하기]</a>
+</div>
+<p></p>
+<div class="d-flex justify-content-center">
+    {% if user == user_info %}
+        <a href="{% url 'accounts:edit' %}">[내정보 수정]</a>
+        <a href="{% url 'accounts:change_password' %}">[비번 변경]</a>
+        <form action="{% url 'accounts:delete' %}" method="POST" style="display:inline-block;">
+            {% csrf_token %}
+            <input type="submit" value="탈퇴"/>
+        </form>    
+    {% endif %}
+</div>
+    
+<div class="container">
+    <h3>{{ user_info.username }}가 작성한 게시글</h3>
+</div>
+
+<div class="container">
+    <div class="row">
+{% for board in user_info.board_set.all %}   <!--user가 가진 모든 board를 가져옴-->
+    <div class="card" style="width: 18rem;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPJ39SjhZrS8EwacwgZ966MQsVIPbnVBPfhiUzYcX4LK1X6Dv92Q" class="card-img-top" alt="삼성전자 이미지">
+        <div class="card-body">
+            <h5 class="card-title">제목 : {{ board.title }}<br></h5>
+            <p class="card-text">내용 : {{ board.content }}<br></p>
+            <a href="{% url 'boards:detail' board.pk %}" class="btn btn-primary">게시글 가기</a>
+        </div>
+    </div>
+    <!--달린 댓글 수 : {{ board.comment_set.all | length }}-->
+    <hr>
+{% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    
+    <h3>{{ user_info.username }}이 작성한 댓글들</h3>
+    {% for comment in user_info.comment_set.all %}
+                                            <!--comment에 있는 board의 id를 가져옴-->    <!--제목이 나온다-->
+       <div>{{ comment.content }} - <a href="{% url 'boards:detail' comment.board.pk %}">{{ comment.board }}</a> </div>
+       <!--comment에는 content 하나의 열밖에 없으므로 단독으로 content를 사용해도 가능-->
+    
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+

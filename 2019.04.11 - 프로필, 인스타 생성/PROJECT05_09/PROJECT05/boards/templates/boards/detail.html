@@ -1,0 +1,44 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+    <h1>{{ board.pk }}번째 글</h1>
+    <h2>{{ board.title }}</h2>
+    <hr>
+    <p>{{ board.content }}</p>
+    <hr>
+    
+    <!--댓글 출력-->
+       <!-- {# for comment in comments #} board에서 한번 더 쿼리문이 돌아야 한다-->
+    
+    {% for comment in board.comment_set.all %}
+        <div>
+            <B>{{ comment.user }}</B>: {{ comment.content }}
+            {% if user == comment.user %}   <!--현재 유저랑 같아야만 삭제 버튼 나옴-->
+                <form action="{% url 'boards:comment_delete' board.pk comment.pk %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="submit" value="삭제"/>
+                </form>
+            {% endif %}
+        </div>
+    {% empty %}  <!--댓글이 없는 경우-->
+        <div>댓글이 없습니다.</div>
+    {% endfor %}
+    
+    <!--댓글 입력-->
+    {% if user.is_authenticated %}   <!--로그인한 경우라면-->
+        <form action="{% url 'boards:comment_create' board.pk %}" method="POST">
+            {% csrf_token %}
+            {{ comment_form|crispy }}
+            <input type="submit" name="작성"/>
+        </form>
+    {% else %}
+        <a href="{% url 'accounts:login' %}">댓글을 작성하려면 로그인하세요.</a>
+    {% endif %}
+    
+    <a href="{% url 'boards:index' %}">BACK</a>
+    <a href="{% url 'boards:update' board.pk %}">[수정]</a>
+
+{% endblock %}

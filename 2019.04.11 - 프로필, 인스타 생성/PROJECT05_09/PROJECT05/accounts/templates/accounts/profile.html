@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+
+{% endblock %}
+
+{% block body %}
+
+{% load gravatar %}
+                                            <!--현재 로그인한 사람의 사진이 보여야 한다(userX) -->
+<h2 class='graphic'><img src="https://s.gravatar.com/avatar/{{ user_info.email|makemd5 }}?s=80" alt="아바타 이미지">{{ user_info.username }}의 프로필</h2>   <!--현재 접속된 아이디 보여줌-->
+<h3>{{ user_info.username }}이 작성한 게시글</h3>
+
+{% if user == user_info %}
+    <a href="{% url 'accounts:edit' %}">[내정보 수정]</a>
+    <a href="{% url 'accounts:change_password' %}">[비번 변경]</a>
+    <form action="{% url 'accounts:delete' %}" method="POST" style="display:inline-block;">
+        {% csrf_token %}
+        <input type="submit" value="탈퇴"/>
+    </form>    
+{% endif %}
+
+
+{% for board in user_info.board_set.all %}   <!--user가 가진 모든 board를 가져옴-->
+    제목 : {{ board.title }}<br>
+    내용 : {{ board.content }}<br>
+    달린 댓글 수 : {{ board.comment_set.all | length }}
+    <hr>
+{% endfor %}
+
+<hr>
+
+<h3>{{ user_info.username }}이 작성한 댓글들</h3>
+{% for comment in user_info.comment_set.all %}
+                                        <!--comment에 있는 board의 id를 가져옴-->    <!--제목이 나온다-->
+   <div>{{ comment.content }} - <a href="{% url 'boards:detail' comment.board.pk %}">{{ comment.board }}</a> </div>
+   <!--comment에는 content 하나의 열밖에 없으므로 단독으로 content를 사용해도 가능-->
+
+{% endfor %}
+
+{% endblock %}
+
+
