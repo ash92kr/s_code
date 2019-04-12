@@ -1,0 +1,36 @@
+<div class="col-10 my-3">
+    <div class="card">
+      <!--{# if post.image #}-->
+        <!--<img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.image }}">-->
+      {% if post.image_set %}   <!--이미지 셋이 있으면-->
+        <div id="post{{ post.pk }}" class="carousel slide" data-ride="carousel">  <!--이미지마다 id가 다름-->
+            <div class="carousel-inner">
+                {% for image in post.image_set.all %}  <!--첫 번째 이미지일 때만 활성화되어야 함-->
+                    <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                      <img src="{{ image.file.url }}" class="d-block w-100" alt="{{ image.file }}">
+                    </div>     <!--이미지 주소 기억-->
+                {% endfor %}
+            </div>                             <!--다음 사진이 나온다-->
+            <a class="carousel-control-prev" href="#post{{ post.pk }}" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#post{{ post.pk }}" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        {% else %}
+        <!--<img src="#" class="card-img-top" alt="NO_IMAGE">-->
+        <img src="#" alt="no-image">
+        {% endif %}
+        <div class="card-body">
+            <p class="card-text">{{ post.content }}</p>
+            <a href="{% url 'posts:update' post.pk %}" class="btn btn-warning">수정</a>
+            <form action="{% url 'posts:delete' post.pk %}" method="POST" style="display:inline;">  <!--삭제는 action이 필요하다-->
+                {% csrf_token %}
+                <input type="submit" value="삭제" class="btn btn-danger"/>
+            </form>
+        </div>
+    </div>
+</div>
