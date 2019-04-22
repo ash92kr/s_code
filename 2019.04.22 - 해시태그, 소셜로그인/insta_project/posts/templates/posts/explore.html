@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex flex-wrap justify-content-center">
+        {% for post in posts %}
+            {% include 'posts/__post.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class='text-center'>{{ hashtag.content }}</h1>
+    <div class="jumbotron jumbotron-fluid text-center mb-2 text-white bg-dark">
+        <div class="container">
+            <h1 class="display-4">{{ hashtag.post_set.count }} 개의 태그</h1>  <!--hashtag가 몇 개의 게시글에 달렸나?-->
+        </div>
+    </div>  
+    <hr>
+    <h3>{{ hashtag.content }}를 태그한 글</h3>
+    <div class="row">
+        {% for post in posts %}   <!--게시글을 for문에 넣음-->
+        <div class="col-4 my-2">    
+            <div class="card">
+                <img src="{{ post.image_set.first.file.url }}" class="d-block w-100" alt="{{ post.image_set.first.file }}">
+                <div class="card-body">   <!--업로드한 사진의 1번째 사진이 보임-->
+                    <h5 class="card-title">{{ post.content }}</h5>
+                    <p class="card-text">{{ post.like_users.count }}명이 좋아합니다.</p>   <!--게시글에 좋아요 누른 유저 수-->
+                    <p class="card-text">{{ post.comment_set.count }}개의 댓글을 작성했습니다.</p>  <!--게시글에 달린 댓글 수-->
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
