@@ -1,0 +1,32 @@
+{% extends 'accounts/base.html' %}
+{% block body %}
+{% load gravatar %}
+
+<h2><img src="https://s.gravatar.com/avatar/{{ user_info.email|makemd5 }}?s=80" alt="profile img"> {{ user_info.username }}의 프로필</h2>
+<h3>{{ user_info.username }}가 작성한 게시글</h3>
+{% if user == user_info %}
+    <a href="{% url 'accounts:edit' %}">[내정보 수정]</a>
+    <a href="{% url 'accounts:change_password' %}">[비번변경]</a>
+    <form action="{% url 'accounts:delete' %}" method="POST" style="display: inline;">
+        {% csrf_token %}
+        <input type="submit" value="탈퇴">
+    </form>
+{% endif %}
+
+<hr>
+
+
+{% for board in user_info.board_set.all %}
+    제목 : {{ board.title }}
+    내용 : {{ board.content }}
+    달린 댓글 수 : {{ board.comment_set.all | length }}
+    <hr>
+{% endfor %}
+<hr>
+<h3>{{ user_info.username }}가 작성한 댓글들</h3>
+{% for comment in user_info.comment_set.all %}
+    <div>{{ comment }} - <a href="{% url 'boards:detail' comment.board_id %}">{{ comment.board }}</a></div>
+{% endfor %}
+
+
+{% endblock %}
