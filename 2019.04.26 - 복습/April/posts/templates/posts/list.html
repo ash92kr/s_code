@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>list</h1>
+    {% for post in posts %}
+        <h3>{{post.user.username}} : {{post.content}}</h3>
+        <!-- Q3-3 : 좋아요 누른 인원의 개수를 출력하는 코드를 아래에 작성하세요. -->
+        <p>{{ post.like_users.count }}명이 게시물을 좋아합니다.</p>
+        <!-- Q3-2 : 좋아요 링크추가 코드를 아래에 작성하세요. -->
+        {% if user in post.like_users.all %}
+            <a href="{% url 'posts:like' post.id %}">좋아요취소</a>
+        {% else %}
+            <a href="{% url 'posts:like' post.id %}">좋아요</a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
