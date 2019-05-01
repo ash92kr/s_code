@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+    <script>
+        var button = document.getElementById('myButton')
+        button.addEventListener('click', function() {
+            console.log('button clicked!')
+        })  
+        // 클릭하면 콜백 함수를 호출해 이벤트가 발생함
+        
+        // setTimeout(callback, 5000)  // 5초 뒤에 callback 함수(이벤트) 실행
+        setTimeout(function() {
+            console.log('3초 후 출력됨')
+        }, 3000)  // 3초 후 실행(2번째 인자)
+
+        setTimeout(() => console.log('3초 후 출력됨'), 3000)
+
+        // 일급객체 함수 3가지 조건
+        // const fco = function () {  // 1번 조건 만족(변수 fco에 함수가 저장됨)
+        //     return n => n + 1  // 3번 조건 만족(return value가 익명 함수)
+        // }
+        // console.log(fco)  // 2번 조건 만족(fco가 console.log의 인자로 전달됨)
+        
+        
+        // 도전(num_101에 101을 담아야 한다)
+        // const num_101 = ??
+        // fco()(100)  // 익명 함수이므로 2단으로 들어가야 한다
+
+        // const fco = function () {  
+        //     return function(n) {
+        //         return n + 1
+        //     }
+        // }
+        // console.log(fco)   // print
+
+    </script>
+</body>
+</html>
