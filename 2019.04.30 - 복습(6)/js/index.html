@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn JS</title>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            width: 960px;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        // 경고창
+        // alert('Welcom to JS');
+        /*
+        이것은 여러줄 주석입니다.
+        */
+        document.write('<h1>Hello, World!</h1>')
+        // document의 h1에 있는 문구를 바꾼다.
+        document.querySelector('h1').innerText = 'Goodbye, World...'
+        
+        // ES5 에서는 var 키워드를 통해 변수선언했지만, 이후버전에서는 안쓰인다.
+        // var name = 'harry';
+        
+        // ES6+ 변수선언
+        // var function scope
+        // let block scope - {}안에서만 정의됨
+        let word = '외안되';
+        document.write(word);
+
+        // 암묵적 전역변수
+        word = '왜않되'
+        document.write(word);
+
+        // ES6+ 이후부터 생긴 변수기능, 바뀌지 않는 상수선언이다. 관례상 대문자와 _으로 변수명을 작성한다.
+        const name = 'harry';
+        document.write(name);
+
+        // name = 'juno';
+        // document.write(name);
+        // 식별자의 원칙
+        // 1. 반드시 글자, $, 밑줄로 시작한다.(대문자로 시작안됨, 단, class 예외)
+        // 2. 글자, 숫자, $, 밑줄만 사용가능
+        // 3. 유니코드(파이, 오메가 등등) 사용가능
+        // 4. 예약어 불가능 (case, function, new, return, break, default, await)
+        // 5. camel case(userName) / snake case(user_name)
+        
+        // 문자열 연결
+        const firstName = 'happy';
+        const lastName = 'hacking';
+        const fullName = firstName + lastName;
+        document.write('<h1>' + fullName + '!!' + '</h1>'); 
+        // template literal
+        document.write(`<h1>${fullName}!!</h1>`);
+        console.log(`Console ${fullName}`);
+
+        // user input
+        // const userName = prompt('Hello! Who R U??')
+        // let message = `<h1>Hello ${userName}</h1>`;
+        // document.write(message);
+
+        // function foo(number) {
+        //     return 11;
+        // }
+        
+        // 조건 분기
+        const yourName = prompt('Who r u ??')
+        let message = ''
+
+        if (yourName === 'harry') {
+            message = 'Hello! Admin!'
+        } else if (yourName === 'neo') {
+            message = 'Hello Neo!!!'
+        } else {
+            message = `<h1>hello ${yourName}</h1>`
+        }
+
+        document.write(message)
+
+        // 삼항연산자
+        // Boolean ? True : False
+        // const number = 9
+        // number === 10 ? document.write('넘버는 10!') : document.write('넘버는 10이 아니야')
+        
+        // '==' 동등연산자로 형변환 비교하며, 메모리의 같은 객체를 가리키거나 같은 값을 갖도록 변환할 수 있다면 비교, 서로 다른 타입이면, 비교하기전에 같은 자료형으로 변환하여 비교(1=="1"), 골칫거리와 혼란을 야기할 수 있으므로 비권장
+        // 1 == '1' -> True
+        // '===' 일치 연산자는 엄격한 비교, 메모리의 같은 객체를 가리키고, 같은 타입이고, 값도 같을 때 True로 판단함. 공식문서에서 권장하는 비교연산자임
+        // 1 == '1' -> False
+
+        // arrow function
+        // function 과 중괄호를 줄이려고 고안된 단축 문법
+        // 규칙
+        // 1.  functin 은 생략해도된다.
+        // 2. 함수의 매개변수가 단 하나뿐이라면 () 도 생략가능, 인자가 없을경우 () 또는 _ 으로 표현
+        // 3. 함수 body 에 표현식이 하나라면 {}와 return 생략가능
+        // var returnObj = () => ({key:'value'}) 와 var returnObj = () => { return {key:'value'}}은 같은 표현
+        // const mul = function (num1, num2) {
+        //     return num1 * num2
+        // }
+
+        // const mul = (num1, num2) => {
+        //     return num1 * num2
+        // }
+
+        // const mul = (num1, num2) => num1 * num2
+
+        // 익명함수/1회용함수
+        function (num) {
+            return num**3
+        }
+        num => num **3  // 익명함수( 파이썬 람다함수와 기능 비슷하다.)
+        (num => num **3)(3) // 익명함수 즉시 실행
+        const cube = num => num**3 // 기명함수로 만들기(변수나 상수에 할당)
+
+        
+
+    </script>
+</body>
+</html>

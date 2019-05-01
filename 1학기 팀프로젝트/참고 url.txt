@@ -1,0 +1,20 @@
+
+# pip 설치 안 될 때
+https://inpages.tistory.com/56
+
+# 기본 웹크롤링 절차
+https://beomi.github.io/2017/01/20/HowToMakeWebCrawler/
+
+# 과거 웹크롤링 방법
+https://github.com/ash92kr/s_education/blob/master/2019.01.18%20-%20%EC%9B%B9%ED%81%AC%EB%A1%A4%EB%A7%81%20%EB%AC%B8%EC%A0%9C%20%ED%92%80%EC%9D%B4.md
+
+# 네이버 웹크롤링 방법
+https://yceffort.github.io/2018/11/05/web-crwaling-for-naver-movie.html
+
+
+
+
+# 영화진흥위원회
+http://www.kobis.or.kr/kobisopenapi/homepg/apikey/ckUser/findApikeyList.do
+
+# 네이버 영화 API
