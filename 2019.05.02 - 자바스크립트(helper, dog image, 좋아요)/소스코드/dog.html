@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dog API</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>귀여운 알파카를 드리겠습니다.</h1>
+    <button id="dog">강아지 얍!</button>
+    <button id="cat">고양이 얍!</button>
+    <div class="animals"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const getDogImage = function () {
+            // 요청을 보내서 가져오면,
+            axios.get('https://dog.ceo/api/breeds/image/random')
+                // 응답은 내용(response)의 response.data.message를 반환하고,
+                .then(response => response.data.message)
+                // 반환된 내용을 url로 담아
+                .then(url => {
+                    // image 태그를 만들고(상수 자체가 태그가 됨) 
+                    const imageTag = document.createElement('img')
+                    // url을 이미지 src로 달고
+                    imageTag.src = url
+                    // 원하는 위치(animals)에 image를 둔다
+                    document.querySelector('.animals').append(imageTag)
+                    // imageTag를 amimals에 추가한다
+                    console.log('붙였다!!')
+                })
+                // 에러 처리  
+                .catch(error => error)
+        }
+        // const button = document.getElementById('select')
+        // button.addEventListener('click', function() {
+            // getDogImage()
+        // })   
+    const dogbutton = document.querySelector('#dog')
+    dogbutton.addEventListener('click', getDogImage)
+    // console.log('시작')
+    // getDogImage()   // callback이므로 붙였다가 가장 마지막에 출력됨4
+    // console.log('끝')
+    </script>
+
+    <script>
+        const getCatImage = function() {
+                axios.get('https://api.thecatapi.com/v1/images/search')
+                .then(response => response.data[0].url)
+                .then(url => {
+                    const imageTag = document.createElement('img')
+                    imageTag.src = url
+                    document.querySelector('.animals').append(imageTag)
+                })                        // prepend(앞에 사진 붙임) <-> append(뒤에 사진 붙임)
+                .catch(error => error)
+            }
+
+        const catbutton = document.querySelector('#cat')
+        catbutton.addEventListener('click', getCatImage)
+    </script>                             <!--callback 함수-->
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+2019-05-02 14:02:53  Game Started
+2019-05-02 14:02:53  Send Ball Postition to Player1: 65/65/250/120/0/0/0/0/0/0
+2019-05-02 14:02:53  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:03:14  Game Started
+2019-05-02 14:03:14  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:03:14  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:03:28  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:03:28  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:03:54  Game Started
+2019-05-02 14:03:54  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:03:54  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:04:07  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:04:07  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:04:52  Game Started
+2019-05-02 14:04:52  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:04:52  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:05:06  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:05:06  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:05:19  Send Ball Postition to Player1: 172/118/0/0/10/10/0/0/0/0
+2019-05-02 14:05:19  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:06:07  Game Started
+2019-05-02 14:06:07  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:06:07  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:06:21  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:06:21  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:06:34  Send Ball Postition to Player1: 172/118/0/0/10/10/0/0/0/0
+2019-05-02 14:06:34  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:06:47  Send Ball Postition to Player1: 229/99/0/0/10/10/0/0/0/0
+2019-05-02 14:06:47  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:07:01  Send Ball Postition to Player1: 165/120/0/0/10/10/0/0/0/0
+2019-05-02 14:07:01  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:09:10  Game Started
+2019-05-02 14:09:10  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:09:10  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:09:23  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:09:23  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:14:48  Game Started
+2019-05-02 14:14:48  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:14:48  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:15:02  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:15:02  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:24:17  Game Started
+2019-05-02 14:24:17  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:24:17  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:24:31  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:24:31  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:24:44  Send Ball Postition to Player1: 172/118/0/0/10/10/0/0/0/0
+2019-05-02 14:24:44  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:24:57  Send Ball Postition to Player1: 229/99/0/0/10/10/0/0/0/0
+2019-05-02 14:24:57  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:25:10  Send Ball Postition to Player1: 165/120/0/0/10/10/0/0/0/0
+2019-05-02 14:25:10  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:25:23  Send Ball Postition to Player1: 234/98/0/0/10/10/0/0/0/0
+2019-05-02 14:25:23  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:25:37  Send Ball Postition to Player1: 162/120/0/0/10/10/0/0/0/0
+2019-05-02 14:25:37  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:25:50  Send Ball Postition to Player1: 234/96/0/0/10/10/0/0/0/0
+2019-05-02 14:25:50  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:26:03  Send Ball Postition to Player1: 161/122/0/0/10/10/0/0/0/0
+2019-05-02 14:26:03  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:26:16  Send Ball Postition to Player1: 236/95/0/0/10/10/0/0/0/0
+2019-05-02 14:26:16  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:26:25  Send Ball Postition to Player1: 171/124/0/0/10/10/0/0/0/0
+2019-05-02 14:26:25  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:26:39  Send Ball Postition to Player1: 232/93/0/0/10/10/0/0/0/0
+2019-05-02 14:26:39  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:26:52  Send Ball Postition to Player1: 161/123/0/0/10/10/0/0/0/0
+2019-05-02 14:26:52  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:27:05  Send Ball Postition to Player1: 237/97/0/0/10/10/0/0/0/0
+2019-05-02 14:27:05  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:27:18  Send Ball Postition to Player1: 162/122/0/0/10/10/0/0/0/0
+2019-05-02 14:27:18  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:27:31  Send Ball Postition to Player1: 233/95/0/0/10/10/0/0/0/0
+2019-05-02 14:27:31  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:27:49  Game Started
+2019-05-02 14:27:49  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:27:49  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:28:02  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:28:02  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:28:15  Send Ball Postition to Player1: 172/118/0/0/10/10/0/0/0/0
+2019-05-02 14:28:15  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:28:31  Game Started
+2019-05-02 14:28:31  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:28:31  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:28:44  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:28:44  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:29:55  Game Started
+2019-05-02 14:29:55  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:29:55  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:30:09  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:30:09  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:30:53  Game Started
+2019-05-02 14:30:53  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:30:53  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:31:07  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:31:07  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:33:24  Game Started
+2019-05-02 14:33:24  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:33:24  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:33:38  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:33:38  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:35:56  Game Started
+2019-05-02 14:35:56  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 14:35:56  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 14:36:10  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 14:36:10  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:04:55  Game Started
+2019-05-02 15:04:55  Send Ball Postition to Player1: 65/65/250/120/0/0/0/0/0/0
+2019-05-02 15:04:55  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:08:54  Game Started
+2019-05-02 15:08:54  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 15:08:54  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:09:08  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 15:09:08  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:09:41  Game Started
+2019-05-02 15:09:41  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 15:09:41  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:09:54  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 15:09:54  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:11:29  Game Started
+2019-05-02 15:11:29  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 15:11:29  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:11:42  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 15:11:42  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:11:55  Send Ball Postition to Player1: 172/118/0/0/10/10/0/0/0/0
+2019-05-02 15:11:55  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:12:08  Send Ball Postition to Player1: 229/99/0/0/10/10/0/0/0/0
+2019-05-02 15:12:08  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:12:22  Send Ball Postition to Player1: 165/120/0/0/10/10/0/0/0/0
+2019-05-02 15:12:22  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:14:00  Game Started
+2019-05-02 15:14:00  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 15:14:00  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:14:13  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 15:14:13  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:14:27  Send Ball Postition to Player1: 172/118/0/0/10/10/0/0/0/0
+2019-05-02 15:14:27  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:14:40  Send Ball Postition to Player1: 229/99/0/0/10/10/0/0/0/0
+2019-05-02 15:14:40  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:14:53  Send Ball Postition to Player1: 165/120/0/0/10/10/0/0/0/0
+2019-05-02 15:14:53  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:15:06  Send Ball Postition to Player1: 234/98/0/0/10/10/0/0/0/0
+2019-05-02 15:15:06  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:15:19  Send Ball Postition to Player1: 162/120/0/0/10/10/0/0/0/0
+2019-05-02 15:15:19  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:15:33  Send Ball Postition to Player1: 234/96/0/0/10/10/0/0/0/0
+2019-05-02 15:15:33  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:15:46  Send Ball Postition to Player1: 161/122/0/0/10/10/0/0/0/0
+2019-05-02 15:15:46  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:15:59  Send Ball Postition to Player1: 236/95/0/0/10/10/0/0/0/0
+2019-05-02 15:15:59  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:16:08  Send Ball Postition to Player1: 171/124/0/0/10/10/0/0/0/0
+2019-05-02 15:16:08  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:16:21  Send Ball Postition to Player1: 232/93/0/0/10/10/0/0/0/0
+2019-05-02 15:16:21  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:16:35  Send Ball Postition to Player1: 161/123/0/0/10/10/0/0/0/0
+2019-05-02 15:16:35  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:16:47  Send Ball Postition to Player1: 237/97/0/0/10/10/0/0/0/0
+2019-05-02 15:16:48  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:17:01  Send Ball Postition to Player1: 162/122/0/0/10/10/0/0/0/0
+2019-05-02 15:17:01  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:17:14  Send Ball Postition to Player1: 233/95/0/0/10/10/0/0/0/0
+2019-05-02 15:17:14  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:17:27  Send Ball Postition to Player1: 167/122/0/0/10/10/0/0/0/0
+2019-05-02 15:17:27  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:17:40  Send Ball Postition to Player1: 233/95/0/0/10/10/0/0/0/0
+2019-05-02 15:17:40  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:17:54  Send Ball Postition to Player1: 157/121/0/0/10/10/0/0/0/0
+2019-05-02 15:17:54  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:18:07  Send Ball Postition to Player1: 240/98/0/0/10/10/0/0/0/0
+2019-05-02 15:18:07  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:18:20  Send Ball Postition to Player1: 166/123/0/0/10/10/0/0/0/0
+2019-05-02 15:18:20  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:18:33  Send Ball Postition to Player1: 235/96/0/0/10/10/0/0/0/0
+2019-05-02 15:18:33  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:18:46  Send Ball Postition to Player1: 165/123/0/0/10/10/0/0/0/0
+2019-05-02 15:18:46  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:18:59  Send Ball Postition to Player1: 234/95/0/0/10/10/0/0/0/0
+2019-05-02 15:18:59  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:19:13  Send Ball Postition to Player1: 160/122/0/0/10/10/0/0/0/0
+2019-05-02 15:19:13  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:19:26  Send Ball Postition to Player1: 235/96/0/0/10/10/0/0/0/0
+2019-05-02 15:19:26  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:19:39  Send Ball Postition to Player1: 168/123/0/0/10/10/0/0/0/0
+2019-05-02 15:19:39  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:19:52  Send Ball Postition to Player1: 236/96/0/0/10/10/0/0/0/0
+2019-05-02 15:19:52  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:20:05  Send Ball Postition to Player1: 157/121/0/0/10/10/0/0/0/0
+2019-05-02 15:20:05  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:20:18  Send Ball Postition to Player1: 239/96/0/0/10/10/0/0/0/0
+2019-05-02 15:20:18  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:20:31  Send Ball Postition to Player1: 156/122/0/0/10/10/0/0/0/0
+2019-05-02 15:20:31  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:20:44  Send Ball Postition to Player1: 240/97/0/0/10/10/0/0/0/0
+2019-05-02 15:20:44  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:20:58  Send Ball Postition to Player1: 163/122/0/0/10/10/0/0/0/0
+2019-05-02 15:20:58  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:21:10  Send Ball Postition to Player1: 238/97/0/0/10/10/0/0/0/0
+2019-05-02 15:21:10  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:21:24  Send Ball Postition to Player1: 170/123/0/0/10/10/0/0/0/0
+2019-05-02 15:21:24  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:21:37  Send Ball Postition to Player1: 229/95/0/0/10/10/0/0/0/0
+2019-05-02 15:21:37  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:21:50  Send Ball Postition to Player1: 162/122/0/0/10/10/0/0/0/0
+2019-05-02 15:21:50  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:22:03  Send Ball Postition to Player1: 233/95/0/0/10/10/0/0/0/0
+2019-05-02 15:22:03  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:22:17  Send Ball Postition to Player1: 157/122/0/0/10/10/0/0/0/0
+2019-05-02 15:22:17  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:22:30  Send Ball Postition to Player1: 238/95/0/0/10/10/0/0/0/0
+2019-05-02 15:22:30  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:22:43  Send Ball Postition to Player1: 164/123/0/0/10/10/0/0/0/0
+2019-05-02 15:22:43  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:22:56  Send Ball Postition to Player1: 233/95/0/0/10/10/0/0/0/0
+2019-05-02 15:22:56  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:23:09  Send Ball Postition to Player1: 167/123/0/0/10/10/0/0/0/0
+2019-05-02 15:23:09  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:23:23  Send Ball Postition to Player1: 233/94/0/0/10/10/0/0/0/0
+2019-05-02 15:23:23  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:23:36  Send Ball Postition to Player1: 164/123/0/0/10/10/0/0/0/0
+2019-05-02 15:23:36  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:23:49  Send Ball Postition to Player1: 236/95/0/0/10/10/0/0/0/0
+2019-05-02 15:23:49  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:24:02  Send Ball Postition to Player1: 156/122/0/0/10/10/0/0/0/0
+2019-05-02 15:24:02  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:24:15  Send Ball Postition to Player1: 238/95/0/0/10/10/0/0/0/0
+2019-05-02 15:24:15  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:24:26  Send Ball Postition to Player1: 167/124/0/0/10/10/0/0/0/0
+2019-05-02 15:24:26  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:24:39  Send Ball Postition to Player1: 236/92/0/0/10/10/0/0/0/0
+2019-05-02 15:24:39  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:24:53  Send Ball Postition to Player1: 149/122/0/0/10/10/0/0/0/0
+2019-05-02 15:24:53  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:25:06  Send Ball Postition to Player1: 242/96/0/0/10/10/0/0/0/0
+2019-05-02 15:25:06  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:25:19  Send Ball Postition to Player1: 159/123/0/0/10/10/0/0/0/0
+2019-05-02 15:25:19  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:25:32  Send Ball Postition to Player1: 236/96/0/0/10/10/0/0/0/0
+2019-05-02 15:25:32  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:25:46  Send Ball Postition to Player1: 157/121/0/0/10/10/0/0/0/0
+2019-05-02 15:25:46  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:25:59  Send Ball Postition to Player1: 239/98/0/0/10/10/0/0/0/0
+2019-05-02 15:25:59  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:26:12  Send Ball Postition to Player1: 160/121/0/0/10/10/0/0/0/0
+2019-05-02 15:26:12  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:26:25  Send Ball Postition to Player1: 236/98/0/0/10/10/0/0/0/0
+2019-05-02 15:26:25  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:26:38  Send Ball Postition to Player1: 159/121/0/0/10/10/0/0/0/0
+2019-05-02 15:26:38  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:26:51  Send Ball Postition to Player1: 238/98/0/0/10/10/0/0/0/0
+2019-05-02 15:26:51  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:27:05  Send Ball Postition to Player1: 169/123/0/0/10/10/0/0/0/0
+2019-05-02 15:27:05  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:27:18  Send Ball Postition to Player1: 230/96/0/0/10/10/0/0/0/0
+2019-05-02 15:27:18  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:27:31  Send Ball Postition to Player1: 168/122/0/0/10/10/0/0/0/0
+2019-05-02 15:27:31  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:27:44  Send Ball Postition to Player1: 235/97/0/0/10/10/0/0/0/0
+2019-05-02 15:27:44  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:27:57  Send Ball Postition to Player1: 167/122/0/0/10/10/0/0/0/0
+2019-05-02 15:27:57  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:28:10  Send Ball Postition to Player1: 232/95/0/0/10/10/0/0/0/0
+2019-05-02 15:28:10  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:28:24  Send Ball Postition to Player1: 162/122/0/0/10/10/0/0/0/0
+2019-05-02 15:28:24  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:28:37  Send Ball Postition to Player1: 237/96/0/0/10/10/0/0/0/0
+2019-05-02 15:28:37  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:28:50  Send Ball Postition to Player1: 162/122/0/0/10/10/0/0/0/0
+2019-05-02 15:28:50  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:29:03  Send Ball Postition to Player1: 238/96/0/0/10/10/0/0/0/0
+2019-05-02 15:29:03  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:29:16  Send Ball Postition to Player1: 166/123/0/0/10/10/0/0/0/0
+2019-05-02 15:29:16  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:29:29  Send Ball Postition to Player1: 234/93/0/0/10/10/0/0/0/0
+2019-05-02 15:29:29  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:31:59  Game Started
+2019-05-02 15:31:59  Send Ball Postition to Player1: 65/65/250/120/10/10/0/0/0/0
+2019-05-02 15:31:59  Received Play Data and Make a Shot: angle 75, power 100
+2019-05-02 15:32:13  Send Ball Postition to Player1: 230/103/0/0/10/10/0/0/0/0
+2019-05-02 15:32:13  Received Play Data and Make a Shot: angle 247, power 130
+2019-05-02 15:32:36  Game Started
+2019-05-02 15:32:36  Send Ball Postition to Player1: 65/65/125/120/240/125/250/10/0/0
+2019-05-02 15:32:36  Received Play Data and Make a Shot: angle 49, power 48
+2019-05-02 15:32:48  Send Ball Postition to Player1: 136/118/0/0/240/124/250/10/0/0
+2019-05-02 15:32:48  Received Play Data and Make a Shot: angle 88, power 62
+2019-05-02 15:32:59  Send Ball Postition to Player1: 254/103/0/0/256/125/250/10/0/0
+2019-05-02 15:32:59  Received Play Data and Make a Shot: angle 7, power 13
+2019-05-02 15:33:09  Send Ball Postition to Player1: 251/119/0/0/256/125/250/10/0/0
+2019-05-02 15:33:09  Received Play Data and Make a Shot: angle 41, power 4
+2019-05-02 15:33:30  Game Started
+2019-05-02 15:33:30  Send Ball Postition to Player1: 65/65/125/120/240/125/250/10/0/0
+2019-05-02 15:33:30  Received Play Data and Make a Shot: angle 49, power 48
+2019-05-02 15:33:42  Send Ball Postition to Player1: 136/118/0/0/240/124/250/10/0/0
+2019-05-02 15:33:42  Received Play Data and Make a Shot: angle 88, power 62
+2019-05-02 15:33:54  Send Ball Postition to Player1: 254/103/0/0/256/125/250/10/0/0
+2019-05-02 15:33:54  Received Play Data and Make a Shot: angle 7, power 13
+2019-05-02 15:34:04  Send Ball Postition to Player1: 251/119/0/0/256/125/250/10/0/0
+2019-05-02 15:34:04  Received Play Data and Make a Shot: angle 41, power 4
+2019-05-02 15:34:12  Send Ball Postition to Player1: 254/120/0/0/0/0/250/10/0/0
+2019-05-02 15:34:12  Received Play Data and Make a Shot: angle 184, power 65
+2019-05-02 15:34:25  Send Ball Postition to Player1: 229/17/0/0/0/0/253/5/0/0
+2019-05-02 15:34:25  Received Play Data and Make a Shot: angle 114, power 15
+2019-05-02 15:34:45  Game Started
+2019-05-02 15:34:45  Send Ball Postition to Player1: 65/65/125/120/240/125/250/10/0/0
+2019-05-02 15:34:45  Received Play Data and Make a Shot: angle 49, power 52
+2019-05-02 15:34:58  Send Ball Postition to Player1: 141/120/0/0/240/124/250/10/0/0
+2019-05-02 15:34:58  Received Play Data and Make a Shot: angle 89, power 90
+2019-05-02 15:35:11  Send Ball Postition to Player1: 238/90/0/0/0/0/250/10/0/0
+2019-05-02 15:35:11  Received Play Data and Make a Shot: angle 172, power 98
+2019-05-02 15:35:52  Game Started
+2019-05-02 15:35:52  Send Ball Postition to Player1: 65/65/115/110/135/15/125/120/130/5
+2019-05-02 15:35:52  Received Play Data and Make a Shot: angle 48, power 100
+2019-05-02 15:36:04  Send Ball Postition to Player1: 132/125/144/117/135/15/0/0/130/5
+2019-05-02 15:36:04  Received Play Data and Make a Shot: angle 105, power 180
+2019-05-02 15:36:18  Send Ball Postition to Player1: 207/122/0/0/135/15/0/0/130/5
+2019-05-02 15:36:18  Received Play Data and Make a Shot: angle 214, power 150
+2019-05-02 15:36:30  Send Ball Postition to Player1: 148/7/0/0/120/18/0/0/0/0
+2019-05-02 15:36:30  Received Play Data and Make a Shot: angle 280, power 150
+2019-05-02 15:36:44  Send Ball Postition to Player1: 81/9/0/0/53/72/0/0/0/0
+2019-05-02 15:36:44  Received Play Data and Make a Shot: angle 339, power 105
