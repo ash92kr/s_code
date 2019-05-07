@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>  <!--inline style-->
+    <div id="app"> 
+        <!-- <li v-for="todo in todos" v-if="!todo.completed" v-on:click="todo.completed = true"> -->
+        <!-- <li v-for="todo in todos" v-if="!todo.completed" v-on:click="check(todo)"> -->
+        <!--todos 객체에서 todo만 가져옴-->
+        <!--completed가 false인 것만 가져옴-->
+            <!-- {{ todo }} -->
+        
+        <!-- 카테고리 분류화하기 -->
+        <select v-model="status">  <!--양방향 모델 만들기-->
+            <option value="all">all</option>
+            <option value="active">active</option>
+            <option value="completed">completed</option>
+        </select>
+
+        <!-- <h6 v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">132165</h6> -->
+        <!-- <li v-for="todo in todos" v-bind:class="{ completed: todo.completed }">  todo.completed가 true면 completed를 생성한다 -->
+        <li v-for="todo in todosByStatus" v-bind:class="{ completed: todo.completed }" v-bind:key="todo.id">
+            <input type="checkbox" v-model="todo.completed">
+            <span>{{ todo.content }}</span>  <!--for문과 if문이 동시에 있으면 for문이 우선권을 가짐-->
+        </li>
+        <li v-else v-on:click="check(todo)">[완료!]</li>
+        <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+        <button @click="addTodo">+</button>
+        <footer>
+            <button @click="clearCompleted">clear</button>  <!--완료했을 때 이벤트 삭제-->
+        </footer>
+        <span>{{ reversedNewTodo }}</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script> // 관행적으로 app이라는 요소를 Vue 객체로 만듦
+        
+        const STORAGE_KEY = 'vue_todos'
+        const todoStorage = {
+            fetch: function () {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+            },
+            save: function (todos) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                todos: todoStorage.fetch(),  // 키를 가져옴
+                //  [  // 해야할 일 배열 객체
+                    // {
+                    //     id: 1,
+                    //     content: '점심 메뉴 고민',
+                    //     completed: true,
+                    // },
+                    // {
+                    //     id: 2,
+                    //     content: '사다리 타기',
+                    //     completed: false,
+                    // },
+                    // {
+                    //     id: 3,
+                    //     content: '야외수업하기',
+                    //     completed: false,
+                    // },
+                    // {
+                    //     id: 4,
+                    //     content: '야자하기',
+                    //     completed: false,
+                    // },
+                // ],
+                newTodo: '',  // 실시간 값이 채워짐
+                activeColor: 'red',
+                fontSize: 30,
+                status: 'all',  // 기본값으로 삼고 this.status로 불러옴
+            },
+            methods: {
+                check: function (todo) {
+                    // todo.completed = true
+                    todo.completed = !todo.completed
+                },
+                addTodo: function () {
+                    this.todos.push({
+                        id: Date.now(),
+                        content: this.newTodo,
+                        completed: false,
+                    })
+                    this.newTodo = ''
+                },
+                clearCompleted: function () {
+                    // filter로 false한 애들만 필터해서 newTodo에 넣음
+                    const notCompletedTodos = this.todos.filter(todo => !todo.completed)      
+                    this.todos = notCompletedTodos
+                },  // todo에서 completed가 되지 않은 것만 필터링함
+            },
+            computed: {
+                todosByStatus: function () {
+                    if (this.status === 'active') {
+                        return this.todos.filter(todo => !todo.completed)
+                    }
+                    if (this.status === 'completed') {
+                        return this.todos.filter(todo => todo.completed)
+                    }
+                    return this.todos
+                },  // 메소드에서 computed로 옮김 -> 함수가 아니라 그냥 호출함
+                reversedNewTodo: function () {
+                    return this.newTodo.split('').reverse().join('')  // 계산된 로직을 여기에 저장함
+                }
+            },
+            watch: {
+                todos: {
+                    handler: function(todos) {
+                        todoStorage.save(todos)   // todos가 저장될 때 todoStorage에 저장됨
+                    },
+                    deep: true,  // 모든 요소까지 watch하겠다
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

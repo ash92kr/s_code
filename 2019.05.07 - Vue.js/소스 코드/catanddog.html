@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <button v-on:click="getCatImage">고냥이</button>
+        <button v-on:click="getDogimage">멍뭉이</button>  <!--클릭하면 해당 함수 호출됨-->
+        <span>고냥 {{ countCat }}</span>
+        <span>멍뭉 {{ countDog }}</span>
+        <hr>
+        <!--<img v-bind:src="image">-->  <!--img 태그의 src에 image를 넣는다(binding)-->
+        <img v-for="image in images" v-bind:src="image">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        const dogsAndCats = new Vue({
+            el: '#main',
+            data: {
+                // image: '',
+                images: [],
+                countDog: 0,
+                countCat: 0,
+            },
+            methods: {
+                getCatImage: function () {
+                    const URL = 'https://api.thecatapi.com/v1/images/search'
+                    axios.get(URL)
+                        .then(response => {  // 함수 안의 함수이므로 arrow function 사용 가능
+                            // this.image = response.data[0].url   // 이미지의 위치
+                            this.images.push(response.data[0].url)
+                            this.countCat += 1
+                        })
+                },
+                getDogimage: function () {
+                    const URL = 'https://dog.ceo/api/breeds/image/random'
+                    axios.get(URL)
+                        .then(response => {
+                            // this.image = response.data.message
+                            this.images.push(response.data.message)
+                            this.countDog += 1
+                        })
+                },
+            }
+        })
+    </script>
+    
+</body>
+</html>

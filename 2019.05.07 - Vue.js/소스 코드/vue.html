@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }} - {{ count }}  <!--키를 입력함-->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            // options
+            // vue 인스턴스와 DOM(document object)를 연결(mount)하도록 하는 옵션
+            el: '#app',   // id가 app인 것과 vue.js를 연결시킴 - element
+            // vue 인스턴스의 속성
+            // - 데이터 객체는 반드시 기본 객체여야 한다 {}
+            // - 내부의 아이템들은 value로 모든 타임의 객체를 가질 수 있다(object string integer array 등)
+            // - 여기서 정의된 속성은 인터폴레이션({{}})을 통해 view에서 랜더링 가능하다
+            // - script 내에서는 app.message로 접근이 가능하며, data 객체 자체에 접근하기 위해서는 app.$data
+            // - this.message (this는 app(상위 인스턴스 객체)을 가리킴)
+            // - _나 $로 시작하는 이름으로 속성을 정의할 수는 있지만, 사용할 때 내부 기본값들과 충돌할 수 있으므로
+            //   반드시 app.$data._sample로 접근해야 한다
+            data: {  // data의 상태나 메시지를 넘김
+                message: 'Hello, ssafy!',
+                count: 0,
+            },
+            methods: {
+                plus: function (){
+                    // 데이터의 카운트값을 1씩 증가
+                    this.count++   // 상위 객체의 count 가져옴
+                }  // this가 일반 function을 가리키므로 =>을 사용하면 안 된다
+            }
+
+        })
+    </script>
+    
+    <!-- <script src="node_modules/vue/dist/vue.js"></script> -->
+</body>
+</html>
