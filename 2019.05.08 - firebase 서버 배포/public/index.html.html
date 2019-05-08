@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <!-- vuefire -->
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <!-- firebase ui web -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.6.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.6.0/firebaseui.css" />
+
+    <script>
+        const config = {
+            apiKey: "AIzaSyD8oE757uNcc_BiWS6ymGhmHcas-9K5gPQ",
+            projectID: "djpy2-chat-885ce",
+            databaseURL: "https://djpy2-chat-885ce.firebaseio.com/",
+        }
+        firebase.initializeApp(config)
+    </script>    
+</head>
+<body>
+    
+    <div id="app">
+        <div v-if="currentUser.uid">
+            <header>
+                <span>Hello, {{ currentUser.displayName }}</span>
+                <button @click="logout">LOGOUT</button>
+            </header>
+            <ul>
+                <li v-for="message in messages">
+                    <B>{{ message.author }}</B> - {{ message.content }}
+                </li>
+            </ul>
+            <div>
+            <input type="text" v-model="newMessage" @keyup.enter="createMessage">
+            <button @click="createMessage">></button>    <!--enter를 입력하면 저장됨-->
+            </div>
+        </div>
+
+        <div v-else>
+            <!-- 로그인 아니면 -->
+            <div id="firebaseui-auth-container"></div>
+        </div>   <!-- 로그인 기본 폼 -->
+
+    </div>
+
+    <script>
+        const database = firebase.database()
+        const auth = firebase.auth()
+        // const ui = new firebaseui.auth.AuthUI(firebase.auth();
+        const ui = new firebaseui.auth.AuthUI(auth);
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                newMessage: '',
+                currentUser: {
+                    uid: '',
+                    email: '',
+                    displayName: '',
+                }
+            },
+            firebase: {
+                messages: database.ref('messages')
+            },
+            mounted: function () {  // 시작할 때 로그인 폼이 나와야 함
+                //this.initUi()   // authentication - 이메일 사용 설정
+                auth.onAuthStateChanged(user => {
+                    if (user) {
+                        this.currentUser.uid = user.uid  // 현재 로그인된 정보를 넘겨줌
+                        this.currentUser.email = user.email
+                        this.currentUser.displayName = user.displayName
+                    } else {
+                        this.initUi()
+                    }
+                })
+            },
+            methods: {
+                createMessage: function () {
+                    if (this.newMessage) {
+                        this.$firebaseRefs.messages.push({
+                            author: this.currentUser.displayName,  // 작성자의 현재 이름 출력됨
+                            content: this.newMessage,
+                        })
+                    }
+                    this.newMessage = ''
+                },
+                initUi: function () {
+                    ui.start('#firebaseui-auth-container', {
+                        signInOptions: [
+                            firebase.auth.EmailAuthProvider.PROVIDER_ID
+                        ],
+                        callbacks: {   // 로그인 성공하면 유저 정보를 가져와 업데이트함
+                            signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+                                this.currentUser.uid = authResult.user.uid
+                                this.currentUser.email = authResult.user.email
+                                this.currentUser.displayName = authResult.user.displayName
+                                return false   // redirect는 끔
+                            }
+                        }
+                    })
+                },
+                logout: function () {
+                    this.currentUser = {
+                        uid: '',
+                        email: '',
+                        displayName: '',
+                    }
+                    auth.signOut()
+                },
+            },
+        })
+    </script>
+</body>
+</html>

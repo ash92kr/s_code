@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <!-- vuefire -->
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+
+    <script>
+        const config = {
+            apiKey: "AIzaSyD8oE757uNcc_BiWS6ymGhmHcas-9K5gPQ",
+            projectID: "djpy2-chat-885ce",
+            databaseURL: "https://djpy2-chat-885ce.firebaseio.com/",
+        }
+        firebase.initializeApp(config)
+    </script>    
+</head>
+<body>
+    
+    <div id="app">
+        <ul>
+            <li v-for="message in messages">
+                {{ message.content }}
+            </li>
+        </ul>
+        <div>
+            <input type="text" v-model="newMessage" @keyup.enter="createMessage">
+            <button @click="createMessage">></button>    <!--enter를 입력하면 저장됨-->
+        </div>
+    </div>
+
+    <script>
+        const database = firebase.database()
+        const app = new Vue({
+            el: '#app',
+            data: {
+                newMessage: '',
+            },
+            firebase: {
+                messages: database.ref('messages')
+            },
+            methods: {
+                createMessage: function () {
+                    if (this.newMessage) {
+                        this.$firebaseRefs.messages.push({
+                        content: this.newMessage,
+                        })
+                    }
+                    this.newMessage = ''
+                }
+            }
+        })
+    </script>
+</body>
+</html>
