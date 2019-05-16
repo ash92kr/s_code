@@ -1,0 +1,264 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>상세 영화 정보</title>
+<!--
+
+Template 2101 Insertion
+
+http://www.tooplate.com/view/2101-insertion
+
+-->
+  <!-- load CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">        <!-- Google web font "Open Sans" -->
+  <link rel="stylesheet" href="{% static 'movies/css/bootstrap.min.css' %}">                                            <!-- https://getbootstrap.com/ -->
+  <link rel="stylesheet" href="{% static 'movies/css/fontawesome-all.min.css' %}">                                      <!-- Font awesome -->
+  <link rel="stylesheet" href="{% static 'movies/css/tooplate-style.css' %}">                                            <!-- Templatemo style -->
+  
+  
+  <script>
+    var renderPage = true;
+
+    if (navigator.userAgent.indexOf('MSIE') !== -1
+      || navigator.appVersion.indexOf('Trident/') > 0) {
+      /* Microsoft Internet Explorer detected in. */
+      alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+      renderPage = false;
+    }
+  </script>
+
+  <style>
+    img {
+      width: 300px;
+      height: 500px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Loader -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+  <div class="tm-main">
+    <!--Navbar-->
+    <div class="tm-welcome-section">
+      <div class="container tm-navbar-container">
+        <div class="row">
+          <div class="col-xl-12">
+            <nav class="navbar navbar-expand-sm">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a href="{% url 'movies:list' %}" class="nav-link tm-nav-link tm-text-white">Home</a>
+                </li>
+               {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a href="{% url 'people' user.username %}" class="nav-link tm-nav-link tm-text-white">Mypage</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'accounts:logout' %}" class="nav-link tm-nav-link tm-text-white">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a href="{% url 'accounts:login' %}" class="nav-link tm-nav-link tm-text-white">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'accounts:signup' %}" class="nav-link tm-nav-link tm-text-white">Signup</a>
+                </li>
+              {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--메인 background-->
+      <div class="container text-center tm-welcome-container">
+        <div class="tm-welcome">
+          <!--<i class="fas tm-fa-big fa-music tm-fa-mb-big"></i>-->
+          <h1 class="text-uppercase mb-3 tm-site-name">Detail</h1>
+          <p class="tm-site-description">영화 상세 정보 제공</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!--검색-->
+    <div class="container">
+      <div class="tm-search-form-container">
+        <form action="{% url 'movies:movie_list' %}" method="GET" class="form-inline tm-search-form">
+          <div class="text-uppercase tm-new-release"><h2>영화 검색</h2></div>
+          <div class="form-group tm-search-box">
+            <input type="text" name="keyword" class="form-control tm-search-input" placeholder="Type your keyword ...">
+            <input type="submit" value="Search" class="form-control tm-search-submit">
+          </div>
+        </form>
+      </div>
+      
+      <!--포스터-->
+      <!--<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 tm-mt-big">-->
+        <!--<div class="tm-about-img">-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--영화 설명-->
+      <div class="tm-about-row tm-mt-big tm-mb-medium">
+        <div class="row text-center" style="width:100%; float:none; margin-left: 30px;">
+          <img src="{{ movie.poster_url }}" alt="{{ movie.movie_name }}">
+          <div class="tm-v-center tm-bg-gray h-100 tm-about-text tm-about-col-left">
+            <h2 class="tm-text-brown mb-4 tm-about-h2">영화 제목 : {{ movie.movie_name }}</h2>
+            
+            <i class="{% if user in movie.like_users.all %}fas{% else %}far{% endif %} fa-heart fa-lg like-button" data-id="{{ movie.pk }}" style="color:crimson; display:inline;"></i>
+            <span id="like-count-{{ movie.pk }}" class="card-text" style="display:inline;">{{ movie.like_user.count }}</span>명이 이 영화를 찜했습니다.
+            <p>{{ movie.like_user.count }}명이 이 영화를 찜했습니다.</p>
+            {{ movie.like_user.count }}
+            
+            <p class="tm-about-description mb-0">상영시간 : {{ movie.time }}분</p>
+            <p class="tm-about-description mb-0">개봉일자 : {{ movie.year }}</p>
+            <p class="tm-about-description mb-0">제작국가 : {{ movie.nation }}</p>
+            <p class="tm-about-description mb-0">감독 : {{ movie.director }}</p>
+            <p class="tm-about-description mb-0">제작사 : {{ movie.company }}</p>
+            <p class="tm-about-description mb-0">관람등급 : {{ movie.grade }}</p>
+            <p class="tm-about-description mb-0">장르 : {{ movie.genre }}</p>
+            <p class="tm-about-description mb-0">배우 : 
+            {% for actor in actors %}
+              {% if movie.actor1 == actor.actor_id %}
+                {{ actor.name }},
+              {% endif %}
+            {% endfor %}
+            {% for actor in actors %}
+              {% if movie.actor2 == actor.actor_id %}
+                {{ actor.name }},
+              {% endif %}
+            {% endfor %}
+            {% for actor in actors %}
+              {% if movie.actor3 == actor.actor_id %}
+                {{ actor.name }}
+              {% endif %}
+            {% endfor %}
+            </p>
+            <!--<p class="tm-about-description mb-0">줄거리 : {{ movie.description }}</p>-->   <!--너무 길어서 뺌-->
+            <p class="tm-about-description mb-0">네이버 평점 : {{ movie.user_rating }}</p>
+            <p class="tm-about-description mb-0">네이버 영화 사이트 : <a href="{{ movie.link_url }}" target="_blank">{{ movie.link_url }}</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!--동영상-->
+      <div class="row tm-about-row tm-mb-medium">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="embed-responsive embed-responsive-21by9">
+            <!--<iframe class="embed-responsive-item" src="{{ movie.flim_url }}" allowfullscreen></iframe>-->
+            <video src="{{ movie.flim_url }}"></video>
+          </div>                                  <!--여기 부분을 데이터로 추가해야함-->
+        </div>
+      </div>
+
+      <!--댓글 작성-->
+      <form action="{% url 'movies:comment_create' movie.pk %}" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="입력"/>
+      </form>
+      
+      <hr>
+      <br>
+
+      <!--댓글 조회-->
+      <h2>입력한 댓글들</h2>
+      
+      {% for comment in movie.comment_set.all %}
+        <!--댓글 수정 및 삭제-->
+        {% if request.user == comment.user %}
+          
+        유저 : {{ comment.user }}<br>
+        
+        <form action="{% url 'movies:comment_update' movie.pk comment.pk %}" method="POST" style="display:inline;">
+          {% csrf_token %}
+          <input type="number" name="score" value="{{ comment.score }}"/>
+          <input type="text" name="content" value="{{ comment.content }}"/>
+          <input type="submit" value="수정"/>
+        </form>
+          <a href="{% url 'movies:comment_delete' movie.pk comment.pk %}">[삭제]</a>
+        <hr>
+
+        {% else %}
+        
+        <p>유저 : <a href="{% url 'people' comment.user %}">{{ comment.user }}<br></a>
+           평점 : {{ comment.score }}<br>
+           내용 : {{ comment.content }}</p>
+        <hr>
+        
+        {% endif %}
+    
+      {% endfor %}
+        
+      <!--footer-->
+      <footer class="row">
+        <div class="col-xl-12">
+          <p class="text-center p-4">Copyright &copy; <span class="tm-current-year">2019</span> 빨간차</a></p>
+        </div>
+      </footer>
+    </div> <!-- .container -->
+
+  </div> <!-- .main -->
+
+  <!-- load JS -->
+  <script src="{% static 'movies/js/jquery-3.2.1.slim.min.js' %}"></script> <!-- https://jquery.com/ -->
+  <script src="{% static 'movies/js/bootstrap.min.js' %}"></script>         <!-- https://getbootstrap.com/ -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+
+    /* DOM is ready
+    ------------------------------------------------*/
+    $(function () {
+
+      if (renderPage) {
+        $('body').addClass('loaded');
+      }
+
+      $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
+    });
+  </script>
+  <script>
+    // 좋아요 버튼들을 모두 선택
+    const likeButtons = document.querySelectorAll('.like-button')
+    likeButtons.forEach(button => {
+        // 각각의 버튼에 클릭 이벤트 설정
+        button.addEventListener('click', function (event) {
+            console.log(event)
+            // 좋아요 버튼의 해당 게시글 id
+            const movieId = event.target.dataset.id
+            // 좋아요 요청 전송
+            axios.get(`/movies/${movieId}/like/`)
+                .then( response => {
+                    document.querySelector(`#like-count-${movieId}`).innerText = response.data.count
+                    // 좋아요가 눌린상태인지 아닌지
+                    // 눌린 상태라면 class
+                    if (response.data.liked) {
+                        event.target.classList.remove('far')
+                        event.target.classList.add('fas')
+                    } else {
+                        event.target.classList.remove('fas')
+                        event.target.classList.add('far')
+                    }
+                })
+        })
+    })
+  </script>
+</body>
+</html>
+
+
