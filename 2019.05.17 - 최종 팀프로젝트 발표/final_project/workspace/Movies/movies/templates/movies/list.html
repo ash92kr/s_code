@@ -1,0 +1,247 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Insertion HTML5 Template</title>
+<!--
+
+Template 2101 Insertion
+
+http://www.tooplate.com/view/2101-insertion
+
+-->
+  <!-- load CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">        <!-- Google web font "Open Sans" -->
+  <link rel="stylesheet" href="{% static 'movies/css/bootstrap.min.css' %}">                                            <!-- https://getbootstrap.com/ -->
+  <link rel="stylesheet" href="{% static 'movies/css/fontawesome-all.min.css' %}">                                      <!-- Font awesome -->
+  <link rel="stylesheet" href="{% static 'movies/css/tooplate-style.css' %}">                                           <!-- Templatemo style -->
+
+  <script>
+    var renderPage = true;
+
+    if (navigator.userAgent.indexOf('MSIE') !== -1
+      || navigator.appVersion.indexOf('Trident/') > 0) {
+      /* Microsoft Internet Explorer detected in. */
+      alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+      renderPage = false;
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Loader -->
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+  <div class="tm-main">
+
+    <div class="tm-welcome-section">
+      <div class="container tm-navbar-container">
+        <div class="row">
+          <div class="col-xl-12">
+            <nav class="navbar navbar-expand-sm">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a href="{% url 'movies:list' %}" class="nav-link tm-nav-link tm-text-white active">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a href="{% url 'people' user.username %}" class="nav-link tm-nav-link tm-text-white">Mypage</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'accounts:logout' %}" class="nav-link tm-nav-link tm-text-white">Logout</a>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <a href="{% url 'accounts:login' %}" class="nav-link tm-nav-link tm-text-white">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'accounts:signup' %}" class="nav-link tm-nav-link tm-text-white">Signup</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+  <!--검색-->
+    <div class="container">
+      <div class="tm-search-form-container">
+        <form action="{% url 'movies:movie_list' %}" method="GET" class="form-inline tm-search-form">
+          <div class="text-uppercase tm-new-release"><h2>영화 검색</h2></div>
+          <div class="form-group tm-search-box">
+            <input type="text" name="keyword" class="form-control tm-search-input" placeholder="Type your keyword ...">
+            <input type="submit" value="Search" class="form-control tm-search-submit">
+          </div>
+        </form>
+      </div>
+      
+      <!--최신 영화 8개 출력-->
+      <h2 class="text-center mt-5">최신 개봉 영화</h2>
+      <div class="row tm-albums-container grid">
+        {% for movie in current_movies %}
+        <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
+          <a href="{% url 'movies:detail' movie.pk %}">
+            <figure class="effect-sadie">
+              <img src="{{ movie.poster_url }}" alt="Image" class="img-fluid">
+                <figcaption>
+                  <a href="{% url 'movies:detail' movie.pk %}"><h2>{{ movie.movie_name }}</h2></a>
+                  <p>평점 : {{ movie.user_rating }} / 장르 : {{ movie.genre }}</p>
+                </figcaption>
+            </figure>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      <hr>
+        
+      <!--유저가 좋아하는 장르 영화 8개 출력-->
+      {% if user.is_authenticated and user.profile.favorite_genre %}
+        <h2 class="text-center mt-5">{{ user.username }}가 좋아하는 장르 추천 영화</h2>
+        <div class="row tm-albums-container grid">
+          {% for movie in user_genre_movies %}
+          <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
+            <a href="{% url 'movies:detail' movie.pk %}">
+              <figure class="effect-sadie">
+                <img src="{{ movie.poster_url }}" alt="Image" class="img-fluid">
+                  <figcaption>
+                    <a href="{% url 'movies:detail' movie.pk %}"><h2>{{ movie.movie_name }}</h2></a>
+                    <p>평점 : {{ movie.user_rating }} / 장르 : {{ movie.genre }}</p>
+                  </figcaption>
+              </figure>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <hr>
+      {% elif not user.is_authenticated %}
+        <h2 class="text-center mt-5">로그인 후 좋아하는 장르 영화를 추천받으세요.</h2>
+      {% else %}
+        <h2 class="text-center mt-5">장르설정 후 좋아하는 장르 영화를 추천받으세요.</h2>
+      {% endif %}
+
+
+      <!--<div class="row">-->
+      <!--  <div class="col-lg-12">-->
+      <!--    <div class="tm-tag-line">-->
+      <!--    <h2 class="tm-tag-line-title">Music is your powerful energy.</h2>-->
+      <!--    </div>-->
+      <!--  </div>-->
+      <!--</div>-->
+
+      <!--<div class="row mb-5">-->
+      <!--  <div class="col-xl-12">-->
+      <!--    <div class="media-boxes">-->
+      <!--      <div class="media">-->
+      <!--        <img src="{% static 'movies/img/insertion-140x140-01.jpg' %}" alt="Image" class="mr-3">-->
+      <!--        <div class="media-body tm-bg-gray">-->
+      <!--          <div class="tm-description-box">-->
+      <!--            <h5 class="tm-text-blue">Vivamus eget urna vitae ante</h5>-->
+      <!--            <p class="mb-0">Insertion HTML Template includes 3 different pages. You can use this layout for your website. Please tell your friends about <a href="https://plus.google.com/+tooplate" target="_parent">Tooplate</a>. Thank you.</p>-->
+      <!--          </div>-->
+      <!--          <div class="tm-buy-box">-->
+      <!--            <a href="#" class="tm-bg-blue tm-text-white tm-buy">buy</a>-->
+      <!--            <span class="tm-text-blue tm-price-tag">$5.50</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="media">-->
+      <!--        <img src="{% static 'movies/img/insertion-140x140-02.jpg' %}" alt="Image" class="mr-3">-->
+      <!--        <div class="media-body tm-bg-pink-light">-->
+      <!--          <div class="tm-description-box">-->
+      <!--            <h5 class="tm-text-pink">Proin fermentum sapien sed nisl</h5>-->
+      <!--            <p class="mb-0">Donec est felis, posuere viverra dapibus ac, pretium vel libero. Aliquam consectetur, arcu eget euismod congue, tortor metus vehicula.</p>-->
+      <!--          </div>-->
+      <!--          <div class="tm-buy-box">-->
+      <!--            <a href="#" class="tm-bg-pink tm-text-white tm-buy">buy</a>-->
+      <!--            <span class="tm-text-pink tm-price-tag">$7.25</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="media">-->
+      <!--        <img src="{% static 'movies/img/insertion-140x140-03.jpg' %}" alt="Image" class="mr-3">-->
+      <!--        <div class="media-body tm-bg-gray">-->
+      <!--          <div class="tm-description-box">-->
+      <!--            <h5 class="tm-text-blue">Quisque dignissim porta nunc</h5>-->
+      <!--            <p class="mb-0">In neque felis, fringilla vel orci ut, sodales consectetur purus. Vivamus eget urna vitae ante pellentesque iaculis. Praesent sit amet.</p>-->
+      <!--          </div>-->
+      <!--          <div class="tm-buy-box">-->
+      <!--            <a href="#" class="tm-bg-blue tm-text-white tm-buy">buy</a>-->
+      <!--            <span class="tm-text-blue tm-price-tag">$6.80</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="media">-->
+      <!--        <img src="{% static 'movies/img/insertion-140x140-04.jpg' %}" alt="Image" class="mr-3">-->
+      <!--        <div class="media-body tm-bg-pink-light">-->
+      <!--          <div class="tm-description-box">-->
+      <!--            <h5 class="tm-text-pink">Vestibulum mattis quam sodales</h5>-->
+      <!--            <p class="mb-0">Curabitur id tempor orci. Fusce efficitur in enim sit amet sodales. Proin id gravida leo. Phasellus non quam et justo faucibus rhoncus.</p>-->
+      <!--          </div>-->
+      <!--          <div class="tm-buy-box">-->
+      <!--            <a href="#" class="tm-bg-pink tm-text-white tm-buy">buy</a>-->
+      <!--            <span class="tm-text-pink tm-price-tag">$3.75</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+      <!--      <div class="media">-->
+      <!--        <img src="{% static 'movies/img/insertion-140x140-05.jpg' %}" alt="Image" class="mr-3">-->
+      <!--        <div class="media-body tm-bg-gray">-->
+      <!--          <div class="tm-description-box">-->
+      <!--            <h5 class="tm-text-blue">Vestibulum mattis quam sodales</h5>-->
+      <!--            <p class="mb-0">Maecenas sit amet nibh faucibus, tincidunt nisl sit amet, elementum eros. Fusce congue ligula gravida lorem lacinia.</p>-->
+      <!--          </div>-->
+      <!--          <div class="tm-buy-box">-->
+      <!--            <a href="#" class="tm-bg-blue tm-text-white tm-buy">buy</a>-->
+      <!--            <span class="tm-text-blue tm-price-tag">$5.25</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--    </div> <!-- media-boxes -->
+      <!--  </div>-->
+      <!--</div>-->
+
+      <footer class="row">
+        <div class="col-xl-12">
+          <p class="text-center p-4">Copyright &copy; <span class="tm-current-year">2019</span> 빨간차</a></p>
+        </div>
+      </footer>
+    </div> <!-- .container -->
+
+  </div> <!-- .main -->
+
+  <!-- load JS -->
+  <script src="{% static 'movies/js/jquery-3.2.1.slim.min.js' %}"></script> <!-- https://jquery.com/ -->
+  <script>
+
+    /* DOM is ready
+    ------------------------------------------------*/
+    $(function () {
+
+      if (renderPage) {
+        $('body').addClass('loaded');
+      }
+
+      $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
+    });
+
+  </script>
+</body>
+</html>
