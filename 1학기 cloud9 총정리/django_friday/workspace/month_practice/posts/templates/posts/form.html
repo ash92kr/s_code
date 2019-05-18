@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+        
+    
+    
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}   <!--context로 넘긴 변수를 적어야 한다-->
+        <input type="submit" value="제출"/>
+    </form>
+
+{% endblock %}

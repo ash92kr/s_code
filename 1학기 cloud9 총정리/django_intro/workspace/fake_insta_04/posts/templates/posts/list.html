@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-center">
+    {% for post in posts %}
+        {% include 'posts/_post.html' %}
+    {% endfor %}
+</div>
+
+<script>
+    // 4. 모든 좋아요 버튼들을 선택
+    const likeButtons = document.querySelectorAll('.like-button')    
+    
+    // 5. 각각의 버튼을 클릭시 이벤트 설정
+    likeButtons.forEach( button => {    // 함수를 만들고 event를 인자로 설정
+        button.addEventListener('click', function (event) {
+            // 6. post_id를 상수로 가져옴(F12 활용하고 좋아요 버튼을 눌러 파악)
+            const postId = event.target.dataset.id
+            // 10. 좋아요(like) 요청을 보냄
+            // axios.get(`/posts/${postId}/like/`)   // 동적 주소로 보냄(urls.py 참고)
+            // axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'  // XHR 요청이라고 장고에게 말해줌
+            axios.defaults.xsrfCookieName = 'csrftoken'
+            axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+            axios.post(`/posts/${postId}/like/`)
+                // 11. 좋아요를 누른 인원의 숫자를 span 태그에 보냄
+                .then( response => {   
+                    document.querySelector(`#like-count-${postId}`).innerText = response.data.count
+                    // 12. true-false 상태에 따라 아이콘 class(i 태그 참고) 변경
+                    if (response.data.liked) {   // 좋아요가 눌린 상태인 경우 색깔이 빠져야 한다
+                        event.target.classList.remove('far')
+                        event.target.classList.add('fas')
+                    } else {
+                        event.target.classList.remove('fas')
+                        event.target.classList.add('far')
+                    }
+                })
+            })
+        })
+</script>
+
+{% endblock  %}

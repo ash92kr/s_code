@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1>DETAIL</h1>
+
+    <h3>{{ post.title }}</h3>
+    <h3>{{ post.content }}</h3>
+    
+    <a href="{% url 'posts:update' post.pk %}">[수정]</a>
+    
+    <form action="{% url 'posts:delete' post.pk %}" method="POST" style="display:inline;">   <!--pk를 넘겨줄 때는 .을 사용한다-->
+        {% csrf_token %}
+        <input type="submit" value="삭제"/>
+    </form>
+
+    <a href="{% url 'posts:list' %}">BACK</a>
+
+{% endblock %}

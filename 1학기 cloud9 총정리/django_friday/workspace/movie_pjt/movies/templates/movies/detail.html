@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+
+    <h3>영화 제목 : {{ movie.title }}</h3>
+    <p>장르 : {{ movie.genre.name }}</p>
+    <p>관객수 : {{ movie.audience }}</p>
+    <p>포스터 : <img src="{{ movie.poster_url }}" alt="{{ movie.title }}"></img></p>
+    <p>내용 : {{ movie.description }}</p>
+
+    <hr>
+    {% for score in movie.score_set.all %}   <!--특정 영화의 평점만 가져올 것-->
+        <p>{{ score.user.username }} : {{ score.value }}</p>
+        <p>{{ score.content }}</p>
+        {% if score.user == request.user %}
+            <form action="{% url 'movies:score_delete' movie.pk score.pk %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">삭제</button>
+            </form>
+        {% endif %}
+    {% endfor %}
+
+    <hr>
+    <p>평점 등록</p>
+    
+    {% if user.is_authenticated %}
+    <form action="{% url 'movies:score_create' movie.pk %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="평점 제출"/>
+    </form>
+    {% else %}
+    <p>로그인을 해야 평점 등록이 가능합니다.
+        <a href="{% url 'accounts:login' %}">로그인</a>
+    </p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h3>{{ user_info.username }}이 작성한 리뷰들</h3>
+    {% for score in user_info.score_set.all %}
+        <p>영화 제목 : {{ score.movie.title }}</p>
+        <p>평점 : {{ score.value }}</p>
+        <p>내용 : {{ score.content }}</p>
+        <hr>
+    {% endfor %}
+    
+    <hr>
+    <p>{{ user_info.username }}가 팔로잉하는 사람 수 : {{ user_info.followings.all.count }}</p>
+    <p>{{ user_info.username }}를 팔로우하는 사람 수 : {{ user_info.followers.all.count }}</p>
+    <hr>
+    {% if request.user != user_info %}  <!--자기 자신은 follow 불가-->
+        {% if request.user in user_info.followers.all %}
+            <a href="{% url 'accounts:follow' user_info.pk %}">unfollow</a>
+        {% else %}
+            <a href="{% url 'accounts:follow' user_info.pk %}">follow</a>
+        {% endif %}
+    {% endif %}
+    
+    <hr>
+    <a href="{% url 'movies:list' %}">BACK</a>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'boards/base.html' %}
+
+{% block title %} EDIT {% endblock %}
+
+{% block body %}
+    
+    <form action="/boards/update/{{ board.id }}/" method="POST">
+        {% csrf_token %}
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" value="{{ board.title }}"/><br>
+        <label for="content">content</label>
+        <textarea name="content" id="content">{{ board.content }}</textarea><br>
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <a href="/boards/detail/{{ board.id }}">돌아가기</a>
+    
+{% endblock %}

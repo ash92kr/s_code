@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create</title>
+</head>
+<body>
+    <h1>Create 페이지입니다</h1>
+
+    <form action='/students/create/' method="POST">
+        {% csrf_token %}
+        <label for="name">NAME</label>
+        <input type="text" name="name"/><br>
+        <label for="email">EMAIL</label>
+        <input type="email" name="email"/><br>
+        <label for="date">BIRTHDAY</label>
+        <input type="date" name="birthday"/><br>
+        <label for="age">AGE</label>
+        <input type="text" name="age"/><br>
+        <input type="submit" value="작성하기"/>
+    </form>
+    
+    <a href="/students/">뒤로가기</a>
+
+</body>
+</html>

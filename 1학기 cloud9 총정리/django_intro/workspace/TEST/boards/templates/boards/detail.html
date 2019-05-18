@@ -1,0 +1,16 @@
+{% extends 'boards/base.html' %}
+
+{% block title %} DETAIL {% endblock %}
+
+{% block body %}
+    
+    <p>{{ board.id }}번째 글</p>
+    <hr>
+    <p>{{ board.title }}</p>
+    <p>{{ board.content }}</p>
+
+    <a href="/boards/">메인화면</a><br>
+    <a href="/boards/edit/{{ board.id }}/">수정하기</a><br>
+    <a href="/boards/delete/{{ board.id }}/">삭제하기</a><br>
+
+{% endblock %}

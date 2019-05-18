@@ -1,0 +1,32 @@
+{% extends 'movies/base.html' %}
+
+{% block title %} Form {% endblock %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+{% if request.resolver_match.url_name == 'create' %}
+    <h1>NEW Movie 입력</h1>
+{% else %}
+    <h1>Movie 수정하기</h1>
+{% endif %}
+    
+    <form method="POST">
+        {% csrf_token %}
+        <!--<input type="text" name="title" id="title"/>-->
+        <!--<input type="number" name="audience" id="audience"/>-->
+        <!--<input type="text" name="poster_url" id="poster_url"/>-->
+        <!--<textarea name="description" id="description"></textarea>-->
+        <!--<input type="number" name="genre" id="genre"/>-->
+        {{ form|crispy }}
+        <input type="submit" value="입력하기"/>
+    </form>
+
+{% if request.resolver_match.url_name == 'create' %}
+    <a href="{% url 'movies:index' %}">뒤로</a>
+{% else %}
+    <a href="{% url 'movies:detail' movie.pk %}">뒤로</a>
+{% endif %}
+
+{% endblock %}

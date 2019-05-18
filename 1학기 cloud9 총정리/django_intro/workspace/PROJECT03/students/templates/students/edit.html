@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit</title>
+</head>
+<body>
+    
+    <h1>Edit 페이지입니다</h1>
+    <h2>{{ student.id }}번 학생</h2>
+
+    <form action='/students/{{ student.pk }}/update/' method="POST">
+        {% csrf_token %}
+        <label for="name">NAME</label>
+        <input type="text" name="name" value="{{ student.name }}"/><br>
+        <label for="email">EMAIL</label>
+        <input type="email" name="email" value="{{ student.email }}"/><br>
+        <label for="date">BIRTHDAY</label>
+        <input type="date" name="birthday" value="{{ student.birthday|date:'Y-m-d' }}"/><br>
+        <label for="age">AGE</label>
+        <input type="text" name="age" value="{{ student.age }}"/><br>
+        <input type="submit" value="작성하기"/>
+    </form>
+    
+    <a href="/students/">뒤로가기</a>
+    
+</body>
+</html>

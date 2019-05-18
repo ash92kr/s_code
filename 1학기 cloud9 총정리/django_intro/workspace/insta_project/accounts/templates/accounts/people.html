@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class='text-center'>{{ people.usernmae }}'s Profile</h1>
+    <div class="jumbotron jumbotron-fluid text-center mb-2">
+        <div class="container">
+            <h1 class="display-4">{{ people.profile.nickname }}</h1>
+            <p class="lead">{{ people.profile.introduction }}</p>
+            <hr class="my-4 border-white">   <!--프로필과 팔로우 구분-->
+            <p class="lead">팔로잉 : {{ people.followings.all.count }} / 팔로워 : {{ people.followers.all.count }}</p>
+            {% if user != people %}
+                {% if user in people.followers.all %}   <!--이미 팔로우된 상태면 unfollow-->
+                    <a href="{% url 'accounts:follow' people.pk %}" class="btn btn-outline-primary">Unfollow</a>
+                {% else %}
+                    <a href="{% url 'accounts:follow' people.pk %}" class="btn btn-primary">follow</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% if user == people %}
+    <div class="text-center">
+        <a href="{% url 'accounts:update' %}" class="badge badge-info">정보 수정</a>
+        <a href="{% url 'accounts:password' %}" class="badge badge-warning">비밀번호 변경</a>
+        <a href="{% url 'accounts:profile_update' %}" class="badge badge-success">프로필 수정</a>
+    </div>
+    {% endif %}
+    <h3 class='text-center'>내가 작성한 글</h3>
+    <div class="row">
+        {% for post in people.post_set.all|dictsortreversed:"pk" %}
+        <div class="col-4 my-2">    <!--최근에 작성한 글이 먼저 나오도록 정렬-->
+            <div class="card">
+                <img src="{{ post.image_set.first.file.url }}" class="d-block w-100" alt="{{ post.image_set.first.file }}">
+                <div class="card-body">   <!--업로드한 사진의 1번째 사진이 보임-->
+                    <h5 class="card-title">{{ post.content }}</h5>
+                    <p class="card-text">{{ post.like_users.count }}명이 좋아합니다.</p>   <!--게시글에 좋아요 누른 유저 수-->
+                    <p class="card-text">{{ post.comment_set.count }}개의 댓글을 작성했습니다.</p>  <!--게시글에 달린 댓글 수-->
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <hr>
+    <h3 class="text-center">내가 작성한 댓글</h3>
+    <div class="row">
+        {% for comment in people.comment_set.all|dictsortreversed:"pk" %}
+        <div class="col-12 my-2">
+            <div class="card">
+                <div class="card-body">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">{{ comment.post }}</p>
+                        <footer class="blockquote-footer">{{ comment }}</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

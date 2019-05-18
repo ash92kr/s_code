@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>LIST</h1>
+
+<div class="d-flex flex-wrap justify-content-center">
+    {% for post in posts %}
+        {% include 'posts/_post.html' %}
+    {% endfor %}
+</div>
+
+    <!--<a href="{# url 'posts:create' #}">새 글 쓰기</a>-->
+
+<script>
+    // 좋아요 버튼들을 모두 선택
+    const likeButtons = document.querySelectorAll('.like-button')
+    likeButtons.forEach( button => {
+        // 각각의 버튼에 클릭 이벤트 설정 
+        button.addEventListener('click', function (event) { // eventlistener에서는 function 사용할 것
+            // console.log(event)
+            // 좋아요 버튼의 해당 게시글 id
+            const postId = event.target.dataset.id   // event 인자의 게시글 번호 가져오기
+            // 좋아요 요청 전송
+            axios.get(`/posts/${postId}/like/`)   // 변수를 넣을 때는 ``(back stick) 사용할 것
+                .then( response => {
+                    document.querySelector(`#like-count-${postId}`).innerText = response.data.count 
+                    // 좋아요가 눌린상태인지 아닌지 눌린 상태에 따라 아이콘 class 변경
+                    // if (좋아요인 상태) {
+                    if (response.data.liked) {
+                        event.target.classList.remove('far')
+                        event.target.classList.add('fas')
+                    } else {
+                        event.target.classList.remove('fas')
+                        event.target.classList.add('far')
+                    }
+                })
+            })
+        })
+</script>
+
+{% endblock %}
+
+
+
