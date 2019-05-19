@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>EDIT</h1>
+    <form action='/users/update/{{ user.id }}'> <!--그 글만 수정해야 한다-->
+        <input type="text" name="nickname" value="{{user.nickname}}" required />  <!--value는 이전에 저장된 내용이 보이도록 만듦-->
+        <input type="text" name="address" value="{{user.address}}" required />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>

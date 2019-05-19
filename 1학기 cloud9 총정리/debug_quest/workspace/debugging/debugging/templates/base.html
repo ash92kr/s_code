@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>디버깅</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'articles:list' %}">메인으로</a>
+        <a href="{% url 'about:team' %}">팀 소개</a>
+        <a href="{% url 'about:members' %}">멤버 소개</a>
+    </header>
+    <nav>
+        {% if user.is_authenticated %}
+        <span>{{ user.username }}</span>
+        <a href="{% url 'accounts:logout' %}">로그아웃</a>
+        {% else %}
+        <a href="{% url 'accounts:login' %}">로그인</a> 
+        {% endif %}
+    </nav>
+    <div class="container">
+        {% block container %}{% endblock %}
+    </div>
+</body>
+</html>

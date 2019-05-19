@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/ping">   <!--앞 부분은 동일-->
+        <input type="text" name="pong"/>
+        <input type="text" name="msg"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    {{ ping_name }}이 {{ ping_msg }}를 보냈습니다.
+</body>
+</html>

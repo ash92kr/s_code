@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action='/timeline/create'>
+        <input type="text" name="username"/>
+        <input type="text" name="message"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <!--flask에서 받은 딕셔너리 형태의 객체를 받아 반복문으로 출력-->
+    <ul>
+        {% for key, value in dictionary.items() %}
+        <li>
+            {{ key }}, {{value}}
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <!--<ul>-->
+    <!--    {% for timeline in timelines %}-->
+            <!--{{ timeline }}-->  <!--orderedDict는 dict처럼 key-value를 가져올 수 있다-->
+    <!--    <li>-->
+    <!--        {{ timeline['username'] }} : {{timeline['message']}}        -->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--        {{ timeline.username }} : {{timeline.message}} 이 방식으로도 부를 수 있다-->
+    <!--    </li>-->
+    <!--    {% endfor %}-->
+    <!--</ul>-->
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+h1, p {
+     color: blue;
+}  
+/* 동시에 속성 적용하는 selector */
+
+/* 모든 속성에 적용되는 universal selector - 바뀌지 않는 것에 적용하므로 가장 위에 작성할 것 */
+* {
+    background-color: black;
+}
+
+/* id selector = 태그가 아니라 id로 접근 가능하다 */
+#uniq {
+    color: red;
+}   
+/* 이렇게 중복되는 경우에는 가장 마지막 style이 적용된다 */
+
+#dinner {
+    font-size: 30px;
+}
+
+.container {
+    background: cadetblue;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-large {
+    font-size: 200%;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-blue {
+    color: blue;
+}
+
+/* 후손 selector - div 박스 안의 모든 p태그 */
+div p {
+    color: green;
+}
+
+/* 자식 selector - div 박스 안의 자식만 - span 태그 안에 있는 것은 제외 */
+div > p {
+    color: orange;
+}
+
+/* 형제 selector = 동위 관계이며, 바로 위/아래로 붙어 있어야 한다 */
+div + p {   /* p ~ span으로 하면 해당 범위 내에 있는 모든 태그가 출력된다 */
+    background: yellow;  /* div 태그 아래 바로 있는 p가 적용됨 */
+}
+
+
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+<!--base 템플릿의 것을 상속받으므로 작성-->
+
+{% block title %} Index {% endblock %}
+<!--탭의 title이 바뀌고 뒤의 - My webpage는 따라온다-->
+
+{% block head %}
+    {{ super() }}   <!--부모 것을 가져온 상태로 아래 항목을 추가함-->
+    <link rel="stylesheet" href="style.css" type="text/css" />   <!-- 이 문장만 쓰면 base.html의 위 4줄이 사라짐-->
+{% endblock %}
+
+{% block body %}
+    <form action="/users/create">   <!-- <2>이 페이지로 정보가 보내짐-->
+        <input type="text" name="username"/>
+        <input type="email" name="email"/>   <!-- 입력 폼 타입 변경함 -->
+        <input type="submit" value="Submit"/>  <!-- <1>여기서 입력한 정보가 -->
+    </form>
+    
+    <ul>
+        {% for user in users %}
+            <li> {{ user.username }} : {{ user.email }}
+            <a href="/users/delete/{{ user.id }}">[DELETE]</a>
+            <a href="/users/edit/{{ user.id }}">[EDIT]</a>   <!--<1> edit 버튼을 누르면 app.py에서 id값을 찾아 해당 id의 페이지로 보냄-->
+            </li>
+        {% endfor %}   <!-- <1> 삭제하려는 id(진자 방식으로 입력해야 한다)를 delete버튼을 눌러 app.py로 정보를 보냄 -->
+    </ul>
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>INDEX</h1>
+    <form action='/users/create/'>  <!--앞쪽의 routing에 유의-->
+        <input type="text" name="nickname" required />
+        <input type="text" name="address" required />
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <h2>주소록</h2>
+    <ul>
+        {% for user in users %}
+            <li>
+                닉네임 : {{ user.nickname }} / 주소 : {{ user.address }}
+                <a href='/users/delete/{{ user.id }}'>[DELETE]</a>
+                <a href='/users/edit/{{ user.id }}'>[EDIT]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
